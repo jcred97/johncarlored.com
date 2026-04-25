@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+:root {
+  --background: #020617;
+  --background-color: #020617;
+  --primary-color: #4a0f0f;
+  --accent-color: #8f1d1d;
+  --foreground: #ededed;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-sora);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+html,
+body {
+  min-height: 100%;
+  background-color: var(--background-color);
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 14% 18%,
+      rgba(74, 15, 15, 0.62) 0,
+      rgba(74, 15, 15, 0.28) 22rem,
+      transparent 44rem
+    ),
+    radial-gradient(
+      circle at 86% 18%,
+      rgba(143, 29, 29, 0.48) 0,
+      rgba(143, 29, 29, 0.22) 20rem,
+      transparent 42rem
+    ),
+    linear-gradient(180deg, rgba(2, 6, 23, 0.22) 0%, rgba(2, 6, 23, 0.5) 100%),
+    linear-gradient(315deg, #2a0909 0%, var(--background-color) 74%);
+  color: var(--foreground);
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  animation: fadeIn 0.8s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sora), var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none;
+  }
+}
