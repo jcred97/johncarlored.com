@@ -1,5 +1,16 @@
+import type { Metadata } from "next";
+
 import ExperienceTabs from "./components/ExperienceTabs";
 import { experience } from "./experience.data";
+
+export const metadata: Metadata = {
+  title: "Experience",
+  description:
+    "View John Carlo Red's Salesforce development experience, education timeline, and roles across multiple organizations.",
+  alternates: {
+    canonical: "/experience",
+  },
+};
 
 export default function ExperiencePage() {
   return (

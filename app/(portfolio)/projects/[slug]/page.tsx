@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -12,6 +13,7 @@ import {
 import { getProjectBySlug, projects } from "../projects.data";
 import { publicImageExists } from "../../../components/ProjectCard/public-image-exists";
 import { previewStyles } from "../../../components/ProjectCard/preview-styles";
+import { siteConfig } from "../../../lib/site";
 
 type ProjectPageProps = {
   params: Promise<{
@@ -28,6 +30,53 @@ export function generateStaticParams() {
 
 // Reject slugs outside the statically known project list.
 export const dynamicParams = false;
+
+export async function generateMetadata({
+  params,
+}: ProjectPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+
+  if (!project) {
+    return {
+      title: "Project not found",
+      robots: {
+        index: false,
+        follow: false,
+      },
+    };
+  }
+
+  const imageUrl = publicImageExists(project.image.src)
+    ? project.image.src
+    : siteConfig.ogImage.url;
+
+  return {
+    title: project.title,
+    description: project.description,
+    alternates: {
+      canonical: `/projects/${project.slug}`,
+    },
+    openGraph: {
+      title: `${project.title} | ${siteConfig.name}`,
+      description: project.description,
+      url: `/projects/${project.slug}`,
+      type: "article",
+      images: [
+        {
+          url: imageUrl,
+          alt: project.image.alt,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | ${siteConfig.name}`,
+      description: project.description,
+      images: [imageUrl],
+    },
+  };
+}
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
@@ -63,7 +112,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 768px"
-              className="object-contain"
+                className="object-contain"
               />
             </div>
           ) : (
@@ -74,9 +123,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   <span className="h-3 w-3 rounded-full bg-amber-300" />
                   <span className="h-3 w-3 rounded-full bg-emerald-400" />
                 </div>
-              <p className="text-sm text-zinc-400">
-                {project.owner}
-              </p>
+                <p className="text-sm text-zinc-400">
+                  {project.owner}
+                </p>
               </div>
 
               <p
@@ -234,7 +283,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </p>
           )}
         </section>
-
       </article>
     </main>
   );

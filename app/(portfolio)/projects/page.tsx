@@ -1,7 +1,17 @@
+import type { Metadata } from "next";
 import { FaRegFolderOpen } from "react-icons/fa";
 
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import { projects } from "./projects.data";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Browse Salesforce projects by John Carlo Red, including portfolio builds, Lightning Web Components, and automation-focused app work.",
+  alternates: {
+    canonical: "/projects",
+  },
+};
 
 export default function ProjectsPage() {
   return (
