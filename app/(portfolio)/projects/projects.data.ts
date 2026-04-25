@@ -32,7 +32,7 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "salesforce-portfolio-website",
+    slug: "sf-portfolio-website",
     title: "Salesforce Portfolio Website",
     owner: "experience-cloud",
     accent: "portfolio",
