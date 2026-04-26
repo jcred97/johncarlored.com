@@ -5,7 +5,6 @@ import ContactDetails from "./_components/ContactDetails";
 import ContactForm from "./_components/ContactForm";
 import ContactSocialLinks from "./_components/ContactSocialLinks";
 import { contactContent } from "./contact.data";
-import { detailIcons, socialIcons } from "./contact.icons";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -29,15 +28,9 @@ export default function ContactPage() {
               {contactContent.intro}
             </p>
 
-            <ContactDetails
-              details={contactContent.details}
-              icons={detailIcons}
-            />
+            <ContactDetails details={contactContent.details} />
 
-            <ContactSocialLinks 
-              links={contactContent.socialLinks} 
-              icons={socialIcons} 
-            />
+            <ContactSocialLinks links={contactContent.socialLinks} />
           </div>
 
           <div className="relative lg:pt-6">

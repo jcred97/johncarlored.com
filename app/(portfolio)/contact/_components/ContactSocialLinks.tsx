@@ -1,20 +1,15 @@
-import type { IconType } from "react-icons";
-
 import type { SocialLink } from "../contact.data";
+import { socialIcons } from "../contact.icons";
 
 type ContactSocialLinksProps = {
   links: readonly SocialLink[];
-  icons: Record<SocialLink["label"], IconType>;
 };
 
-export default function ContactSocialLinks({
-  links,
-  icons,
-}: ContactSocialLinksProps) {
+export default function ContactSocialLinks({ links }: ContactSocialLinksProps) {
   return (
     <div className="mt-8 flex items-center gap-3">
       {links.map((link) => {
-        const Icon = icons[link.label];
+        const Icon = socialIcons[link.label];
 
         return (
           <a

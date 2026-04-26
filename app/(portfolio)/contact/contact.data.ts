@@ -1,13 +1,14 @@
 import { siteConfig } from "../../lib/site";
+import type { ContactDetailLabel, SocialLinkLabel } from "./contact.icons";
 
 export type ContactDetail = {
-  label: "Timezone" | "Location";
+  label: ContactDetailLabel;
   value: string;
   description: string;
 };
 
 export type SocialLink = {
-  label: "LinkedIn" | "GitHub" | "Email";
+  label: SocialLinkLabel;
   href: string;
   isExternal?: boolean;
 };
