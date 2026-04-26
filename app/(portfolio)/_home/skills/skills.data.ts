@@ -1,54 +1,51 @@
-import type { IconType } from "react-icons";
-import { FaJava, FaMicrosoft } from "react-icons/fa";
-import {
-  SiAtlassian,
-  SiBitbucket,
-  SiBootstrap,
-  SiC,
-  SiConfluence,
-  SiCplusplus,
-  SiCss,
-  SiGit,
-  SiGithub,
-  SiHtml5,
-  SiJavascript,
-  SiJira,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiPhp,
-  SiPostman,
-  SiPostgresql,
-  SiReact,
-  SiSharp,
-  SiTailwindcss,
-  SiTrello,
-  SiTypescript,
-  SiMysql,
-} from "react-icons/si";
-import {
-  TbApi,
-  TbCode,
-  TbComponents,
-  TbDatabaseSearch,
-  TbFileCode,
-  TbGitBranch,
-  TbHeadset,
-  TbInfinity,
-  TbLayersIntersect,
-  TbMapPinHeart,
-  TbRobot,
-  TbUsers,
-  TbWorld,
-} from "react-icons/tb";
-import { VscVscode } from "react-icons/vsc";
-
 export const skillsContent = {
   heading: "Skills",
 };
 
-type Skill = {
+export type SkillIconKey =
+  | "apex"
+  | "lightningWebComponents"
+  | "flow"
+  | "agentforce"
+  | "soql"
+  | "salesCloud"
+  | "experienceCloud"
+  | "serviceCloud"
+  | "auraComponents"
+  | "visualforce"
+  | "copado"
+  | "fieldService"
+  | "html"
+  | "css"
+  | "javascript"
+  | "typescript"
+  | "bootstrap"
+  | "react"
+  | "nextjs"
+  | "tailwind"
+  | "nodejs"
+  | "java"
+  | "php"
+  | "c"
+  | "cplusplus"
+  | "csharp"
+  | "restApi"
+  | "postgresql"
+  | "mysql"
+  | "git"
+  | "github"
+  | "bitbucket"
+  | "vscode"
+  | "postman"
+  | "microsoftOffice"
+  | "atlassian"
+  | "jira"
+  | "confluence"
+  | "trello";
+
+export type Skill = {
   name: string;
-  Icon: IconType;
+  iconKey: SkillIconKey;
   accent: string;
 };
 
@@ -59,76 +56,76 @@ export const skillGroups: {
   {
     title: "Salesforce",
     skills: [
-      { name: "Apex", Icon: TbCode, accent: "text-cyan-300" },
+      { name: "Apex", iconKey: "apex", accent: "text-cyan-300" },
       {
         name: "Lightning Web Components",
-        Icon: TbComponents,
+        iconKey: "lightningWebComponents",
         accent: "text-blue-300",
       },
-      { name: "Flow", Icon: TbGitBranch, accent: "text-teal-300" },
-      { name: "Agentforce", Icon: TbRobot, accent: "text-violet-300" },
-      { name: "SOQL", Icon: TbDatabaseSearch, accent: "text-emerald-300" },
-      { name: "Sales Cloud", Icon: TbUsers, accent: "text-sky-300" },
-      { name: "Experience Cloud", Icon: TbWorld, accent: "text-sky-300" },
-      { name: "Service Cloud", Icon: TbHeadset, accent: "text-cyan-300" },
+      { name: "Flow", iconKey: "flow", accent: "text-teal-300" },
+      { name: "Agentforce", iconKey: "agentforce", accent: "text-violet-300" },
+      { name: "SOQL", iconKey: "soql", accent: "text-emerald-300" },
+      { name: "Sales Cloud", iconKey: "salesCloud", accent: "text-sky-300" },
+      { name: "Experience Cloud", iconKey: "experienceCloud", accent: "text-sky-300" },
+      { name: "Service Cloud", iconKey: "serviceCloud", accent: "text-cyan-300" },
       {
         name: "Aura Components",
-        Icon: TbLayersIntersect,
+        iconKey: "auraComponents",
         accent: "text-indigo-300",
       },
-      { name: "Visualforce", Icon: TbFileCode, accent: "text-blue-300" },
-      { name: "Copado", Icon: TbInfinity, accent: "text-cyan-300" },
-      { name: "Field Service", Icon: TbMapPinHeart, accent: "text-pink-300" },
+      { name: "Visualforce", iconKey: "visualforce", accent: "text-blue-300" },
+      { name: "Copado", iconKey: "copado", accent: "text-cyan-300" },
+      { name: "Field Service", iconKey: "fieldService", accent: "text-pink-300" },
     ],
   },
   {
     title: "Front End",
     skills: [
-      { name: "HTML", Icon: SiHtml5, accent: "text-orange-300" },
-      { name: "CSS", Icon: SiCss, accent: "text-blue-300" },
-      { name: "JavaScript", Icon: SiJavascript, accent: "text-yellow-300" },
-      { name: "TypeScript", Icon: SiTypescript, accent: "text-blue-300" },
-      { name: "Bootstrap", Icon: SiBootstrap, accent: "text-violet-300" },
-      { name: "React", Icon: SiReact, accent: "text-cyan-300" },
-      { name: "Next.js", Icon: SiNextdotjs, accent: "text-zinc-100" },
-      { name: "Tailwind", Icon: SiTailwindcss, accent: "text-teal-300" },
+      { name: "HTML", iconKey: "html", accent: "text-orange-300" },
+      { name: "CSS", iconKey: "css", accent: "text-blue-300" },
+      { name: "JavaScript", iconKey: "javascript", accent: "text-yellow-300" },
+      { name: "TypeScript", iconKey: "typescript", accent: "text-blue-300" },
+      { name: "Bootstrap", iconKey: "bootstrap", accent: "text-violet-300" },
+      { name: "React", iconKey: "react", accent: "text-cyan-300" },
+      { name: "Next.js", iconKey: "nextjs", accent: "text-zinc-100" },
+      { name: "Tailwind", iconKey: "tailwind", accent: "text-teal-300" },
     ],
   },
   {
     title: "Back End",
     skills: [
-      { name: "Node.js", Icon: SiNodedotjs, accent: "text-green-300" },
-      { name: "Java", Icon: FaJava, accent: "text-orange-300" },
-      { name: "PHP", Icon: SiPhp, accent: "text-indigo-300" },
-      { name: "C", Icon: SiC, accent: "text-blue-300" },
-      { name: "C++", Icon: SiCplusplus, accent: "text-blue-300" },
-      { name: "C#", Icon: SiSharp, accent: "text-violet-300" },
-      { name: "REST API", Icon: TbApi, accent: "text-indigo-300" },
-      { name: "PostgreSQL", Icon: SiPostgresql, accent: "text-sky-300" },
-      { name: "MySQL", Icon: SiMysql, accent: "text-blue-300" },
+      { name: "Node.js", iconKey: "nodejs", accent: "text-green-300" },
+      { name: "Java", iconKey: "java", accent: "text-orange-300" },
+      { name: "PHP", iconKey: "php", accent: "text-indigo-300" },
+      { name: "C", iconKey: "c", accent: "text-blue-300" },
+      { name: "C++", iconKey: "cplusplus", accent: "text-blue-300" },
+      { name: "C#", iconKey: "csharp", accent: "text-violet-300" },
+      { name: "REST API", iconKey: "restApi", accent: "text-indigo-300" },
+      { name: "PostgreSQL", iconKey: "postgresql", accent: "text-sky-300" },
+      { name: "MySQL", iconKey: "mysql", accent: "text-blue-300" },
     ],
   },
   {
     title: "Tools & Workflow",
     skills: [
-      { name: "Git", Icon: SiGit, accent: "text-red-300" },
-      { name: "GitHub", Icon: SiGithub, accent: "text-zinc-100" },
-      { name: "Bitbucket", Icon: SiBitbucket, accent: "text-blue-300" },
+      { name: "Git", iconKey: "git", accent: "text-red-300" },
+      { name: "GitHub", iconKey: "github", accent: "text-zinc-100" },
+      { name: "Bitbucket", iconKey: "bitbucket", accent: "text-blue-300" },
       {
         name: "Visual Studio Code",
-        Icon: VscVscode,
+        iconKey: "vscode",
         accent: "text-blue-300",
       },
-      { name: "Postman", Icon: SiPostman, accent: "text-orange-300" },
+      { name: "Postman", iconKey: "postman", accent: "text-orange-300" },
       {
         name: "Microsoft Office",
-        Icon: FaMicrosoft,
+        iconKey: "microsoftOffice",
         accent: "text-cyan-300",
       },
-      { name: "Atlassian", Icon: SiAtlassian, accent: "text-blue-300" },
-      { name: "Jira", Icon: SiJira, accent: "text-blue-300" },
-      { name: "Confluence", Icon: SiConfluence, accent: "text-sky-300" },
-      { name: "Trello", Icon: SiTrello, accent: "text-blue-300" },
+      { name: "Atlassian", iconKey: "atlassian", accent: "text-blue-300" },
+      { name: "Jira", iconKey: "jira", accent: "text-blue-300" },
+      { name: "Confluence", iconKey: "confluence", accent: "text-sky-300" },
+      { name: "Trello", iconKey: "trello", accent: "text-blue-300" },
     ],
   },
 ];
