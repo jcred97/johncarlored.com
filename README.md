@@ -53,7 +53,7 @@ Key content files:
   Project cards and slug-page content
 - `app/(portfolio)/experience/experience.data.ts`
   Work and education timeline data
-- `app/(portfolio)/_home/skills/skills.data.ts`
+- `app/(portfolio)/skills/skills.data.ts`
   Skill group data
 
 ## Development

@@ -42,7 +42,46 @@ import {
 } from "react-icons/tb";
 import { VscVscode } from "react-icons/vsc";
 
-import type { SkillIconKey } from "./skills.data";
+export type SkillIconKey =
+  | "apex"
+  | "lightningWebComponents"
+  | "flow"
+  | "agentforce"
+  | "soql"
+  | "salesCloud"
+  | "experienceCloud"
+  | "serviceCloud"
+  | "auraComponents"
+  | "visualforce"
+  | "copado"
+  | "fieldService"
+  | "html"
+  | "css"
+  | "javascript"
+  | "typescript"
+  | "bootstrap"
+  | "react"
+  | "nextjs"
+  | "tailwind"
+  | "nodejs"
+  | "java"
+  | "php"
+  | "c"
+  | "cplusplus"
+  | "csharp"
+  | "restApi"
+  | "postgresql"
+  | "mysql"
+  | "git"
+  | "github"
+  | "bitbucket"
+  | "vscode"
+  | "postman"
+  | "microsoftOffice"
+  | "atlassian"
+  | "jira"
+  | "confluence"
+  | "trello";
 
 export const skillIcons: Record<SkillIconKey, IconType> = {
   apex: TbCode,

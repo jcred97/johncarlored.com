@@ -1,47 +1,4 @@
-export const skillsContent = {
-  heading: "Skills",
-};
-
-export type SkillIconKey =
-  | "apex"
-  | "lightningWebComponents"
-  | "flow"
-  | "agentforce"
-  | "soql"
-  | "salesCloud"
-  | "experienceCloud"
-  | "serviceCloud"
-  | "auraComponents"
-  | "visualforce"
-  | "copado"
-  | "fieldService"
-  | "html"
-  | "css"
-  | "javascript"
-  | "typescript"
-  | "bootstrap"
-  | "react"
-  | "nextjs"
-  | "tailwind"
-  | "nodejs"
-  | "java"
-  | "php"
-  | "c"
-  | "cplusplus"
-  | "csharp"
-  | "restApi"
-  | "postgresql"
-  | "mysql"
-  | "git"
-  | "github"
-  | "bitbucket"
-  | "vscode"
-  | "postman"
-  | "microsoftOffice"
-  | "atlassian"
-  | "jira"
-  | "confluence"
-  | "trello";
+import type { SkillIconKey } from "./skills.icons";
 
 export type Skill = {
   name: string;
@@ -49,10 +6,12 @@ export type Skill = {
   accent: string;
 };
 
-export const skillGroups: {
+export type SkillGroup = {
   title: string;
   skills: Skill[];
-}[] = [
+};
+
+export const skillGroups: SkillGroup[] = [
   {
     title: "Salesforce",
     skills: [
@@ -66,7 +25,11 @@ export const skillGroups: {
       { name: "Agentforce", iconKey: "agentforce", accent: "text-violet-300" },
       { name: "SOQL", iconKey: "soql", accent: "text-emerald-300" },
       { name: "Sales Cloud", iconKey: "salesCloud", accent: "text-sky-300" },
-      { name: "Experience Cloud", iconKey: "experienceCloud", accent: "text-sky-300" },
+      {
+        name: "Experience Cloud",
+        iconKey: "experienceCloud",
+        accent: "text-sky-300",
+      },
       { name: "Service Cloud", iconKey: "serviceCloud", accent: "text-cyan-300" },
       {
         name: "Aura Components",
