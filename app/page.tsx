@@ -6,7 +6,7 @@ import { siteConfig } from "./lib/site";
 
 export const metadata: Metadata = {
   title: {
-    absolute: `${siteConfig.name} | ${siteConfig.role}`,
+    absolute: `${siteConfig.name}`,
   },
   description:
     "Explore John Carlo Red's portfolio, featured Salesforce projects, technical strengths, and developer profile.",

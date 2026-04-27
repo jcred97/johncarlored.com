@@ -20,7 +20,9 @@ export function getProjectMetadata(project: Project | undefined): Metadata {
     : siteConfig.ogImage.url;
 
   return {
-    title: project.title,
+    title: {
+      absolute: project.title,
+    },
     description: project.description,
     alternates: {
       canonical: `/projects/${project.slug}`,
