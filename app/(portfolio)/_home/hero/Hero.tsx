@@ -1,9 +1,9 @@
 import { FaLocationDot } from "react-icons/fa6";
 
-import HeroActions from "./components/HeroActions";
-import HeroProfileImage from "./components/HeroProfileImage";
-import HeroSocialLinks from "./components/HeroSocialLinks";
-import HeroWorkedWith from "./components/HeroWorkedWith";
+import HeroActions from "./_components/HeroActions";
+import HeroProfileImage from "./_components/HeroProfileImage";
+import HeroSocialLinks from "./_components/HeroSocialLinks";
+import HeroWorkedWith from "./_components/HeroWorkedWith";
 import { hero } from "./hero.data";
 
 export default function Hero() {
