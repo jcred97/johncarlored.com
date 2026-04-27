@@ -1,15 +1,9 @@
 export type ExperienceTabId = "work" | "education";
 
-export type ExperienceLink = {
-  label: string;
-  href: string;
-};
-
 export type ExperienceRole = {
   title: string;
   period: string;
   bullets: readonly string[];
-  links?: readonly ExperienceLink[];
 };
 
 export type ExperienceEntry = {

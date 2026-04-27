@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import ExperienceTabs from "./components/ExperienceTabs";
+import ExperienceTabs from "./_components/ExperienceTabs";
 import { experience } from "./experience.data";
 
 export const metadata: Metadata = {

@@ -1,5 +1,4 @@
-import type { ExperienceRole } from "../experience.data";
-import RoleLinks from "./RoleLinks";
+import type { ExperienceRole } from "../../experience.data";
 
 type RoleBlockProps = {
   organization: string;
@@ -24,8 +23,6 @@ export default function RoleBlock({ organization, role }: RoleBlockProps) {
           </li>
         ))}
       </ul>
-
-      {role.links?.length ? <RoleLinks links={role.links} /> : null}
     </div>
   );
 }
