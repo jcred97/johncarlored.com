@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { FaRegCalendarAlt, FaTag } from "react-icons/fa";
 
 import type { Project } from "../../../projects.data";
@@ -7,12 +10,25 @@ import ProjectHeroPreview from "./ProjectHeroPreview";
 type ProjectHeroProps = {
   project: Project;
   actionLinks: Project["links"];
+  hasCoverImage: boolean;
 };
 
-export default function ProjectHero({ project, actionLinks }: ProjectHeroProps) {
+export default function ProjectHero({
+  project,
+  actionLinks,
+  hasCoverImage,
+}: ProjectHeroProps) {
+  const [activeDemoIndex, setActiveDemoIndex] = useState<number | null>(null);
+
   return (
     <>
-      <ProjectHeroPreview project={project} />
+      <ProjectHeroPreview
+        project={project}
+        hasCoverImage={hasCoverImage}
+        activeDemoIndex={activeDemoIndex}
+        onSelectPreview={() => setActiveDemoIndex(null)}
+        onSelectDemo={setActiveDemoIndex}
+      />
 
       <header className="mt-10">
         <h1 className="text-4xl font-semibold tracking-normal text-foreground sm:text-5xl">
@@ -26,7 +42,10 @@ export default function ProjectHero({ project, actionLinks }: ProjectHeroProps) 
           </span>
         </div>
 
-        <ProjectHeroActions project={project} actionLinks={actionLinks} />
+        <ProjectHeroActions
+          project={project}
+          actionLinks={actionLinks}
+        />
 
         <div className="mt-8 flex flex-wrap items-center gap-2">
           <FaTag className="mr-2 h-4 w-4 text-zinc-500" aria-hidden="true" />

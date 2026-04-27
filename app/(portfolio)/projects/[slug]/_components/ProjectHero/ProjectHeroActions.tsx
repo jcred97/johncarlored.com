@@ -8,7 +8,10 @@ type ProjectHeroActionsProps = {
   actionLinks: Project["links"];
 };
 
-export default function ProjectHeroActions({ project, actionLinks, }: ProjectHeroActionsProps) {
+export default function ProjectHeroActions({
+  project,
+  actionLinks,
+}: ProjectHeroActionsProps) {
   if (actionLinks.length === 0 && !project.githubUrl) {
     return null;
   }

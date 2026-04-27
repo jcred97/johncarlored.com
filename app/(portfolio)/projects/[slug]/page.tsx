@@ -5,6 +5,7 @@ import ProjectBackLink from "./_components/ProjectBackLink";
 import ProjectHero from "./_components/ProjectHero/ProjectHero";
 import ProjectOverview from "./_components/ProjectOverview";
 import { getProjectMetadata } from "./_lib/project-metadata";
+import { publicImageExists } from "../../../components/ProjectCard/public-image-exists";
 import { getProjectBySlug, projects } from "../projects.data";
 
 type ProjectPageProps = {
@@ -37,12 +38,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     notFound();
   }
 
+  const hasCoverImage = publicImageExists(project.image.src);
+
   return (
     <main className="flex flex-1 px-6 py-20 sm:px-8">
       <article className="mx-auto w-full max-w-4xl">
         <ProjectBackLink />
 
-        <ProjectHero project={project} actionLinks={project.links} />
+        <ProjectHero
+          project={project}
+          actionLinks={project.links}
+          hasCoverImage={hasCoverImage}
+        />
 
         <hr className="my-12 border-white/10" />
 

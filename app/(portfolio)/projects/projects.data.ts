@@ -15,6 +15,10 @@ export type Project = {
     }[];
     closing?: string[];
   };
+  demoVideos?: {
+    title: string;
+    embedUrl: string;
+  }[];
   status: string;
   timeline: string;
   githubUrl?: string;
@@ -103,6 +107,16 @@ export const projects: Project[] = [
         "From a repo structure standpoint, it includes LWCs for the frontend, Apex controllers and tests for server logic, Flows for automation, custom objects and metadata for content and configuration, and scripts for seed-data import and deployment support.",
       ],
     },
+    demoVideos: [
+      {
+        title: "Portfolio Demo",
+        embedUrl: "https://www.youtube.com/embed/wj4wXNmiUbw",
+      },
+      {
+        title: "Form-to-Lead Demo",
+        embedUrl: "https://www.youtube.com/embed/STil-gj3jU8",
+      },
+    ],
     status: "In progress",
     timeline: "March 2, 2026 - Present",
     githubUrl: "https://github.com/jcred97/sf-workfolio",
@@ -188,6 +202,12 @@ export const projects: Project[] = [
         "From an implementation standpoint, Spendly includes Apex controller logic, Lightning Web Components for the dashboard and modal flows, custom objects for the finance data model, and deployment support for replacing older TrackSpend metadata with the renamed Spendly app.",
       ],
     },
+    demoVideos: [
+      {
+        title: "Spendly Demo",
+        embedUrl: "https://www.youtube.com/embed/SC94P9kjwPM",
+      },
+    ],
     status: "Completed",
     timeline: "February 14, 2026 - April 8, 2026",
     githubUrl: "https://github.com/jcred97/sf-spendly",

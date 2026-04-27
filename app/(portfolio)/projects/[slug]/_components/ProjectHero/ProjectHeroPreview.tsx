@@ -1,21 +1,76 @@
 import Image from "next/image";
 
 import type { Project } from "../../../projects.data";
-import { publicImageExists } from "../../../../../components/ProjectCard/public-image-exists";
 import { previewStyles } from "../../../../../components/ProjectCard/preview-styles";
 
 type ProjectHeroPreviewProps = {
   project: Project;
+  hasCoverImage: boolean;
+  activeDemoIndex: number | null;
+  onSelectPreview: () => void;
+  onSelectDemo: (index: number) => void;
 };
 
-export default function ProjectHeroPreview({ project }: ProjectHeroPreviewProps) {
+export default function ProjectHeroPreview({
+  project,
+  hasCoverImage,
+  activeDemoIndex,
+  onSelectPreview,
+  onSelectDemo,
+}: ProjectHeroPreviewProps) {
   const previewStyle = previewStyles[project.accent];
-  const hasCoverImage = publicImageExists(project.image.src);
+  const activeDemo = activeDemoIndex === null ? undefined : project.demoVideos?.[activeDemoIndex];
+  const mediaControls = project.demoVideos?.length ? (
+    <div className="mt-4 flex flex-wrap gap-2">
+      <button
+        type="button"
+        onClick={onSelectPreview}
+        className={`inline-flex h-9 cursor-pointer items-center justify-center rounded-md px-3 text-xs font-semibold transition-colors ${
+          activeDemoIndex === null
+            ? "bg-white text-slate-950"
+            : "border border-white/12 bg-white/4 text-zinc-100 hover:border-red-200/40 hover:text-red-100"
+        }`}
+      >
+        Preview
+      </button>
+      {project.demoVideos.map((demoVideo, index) => (
+        <button
+          key={demoVideo.embedUrl}
+          type="button"
+          onClick={() => onSelectDemo(index)}
+          className={`inline-flex h-9 cursor-pointer items-center justify-center rounded-md px-3 text-xs font-semibold transition-colors ${
+            activeDemoIndex === index
+              ? "bg-white text-slate-950"
+              : "border border-white/12 bg-white/4 text-zinc-100 hover:border-red-200/40 hover:text-red-100"
+          }`}
+        >
+          {demoVideo.title}
+        </button>
+      ))}
+    </div>
+  ) : null;
+
+  if (activeDemo) {
+    return (
+      <div className="mx-auto mt-10 w-full max-w-3xl">
+        <div className="overflow-hidden rounded-md border border-white/10 bg-slate-950 shadow-md shadow-black/20">
+          <iframe
+            src={activeDemo.embedUrl}
+            title={activeDemo.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            className="aspect-video w-full"
+          />
+        </div>
+        {mediaControls}
+      </div>
+    );
+  }
 
   if (hasCoverImage) {
     return (
       <div className="mx-auto mt-10 w-full max-w-3xl">
-        <div className="relative aspect-[1361/913] overflow-hidden rounded-md border border-white/10 bg-slate-950 shadow-md shadow-black/20">
+        <div className="relative aspect-video overflow-hidden rounded-md border border-white/10 bg-slate-950 shadow-md shadow-black/20">
           <Image
             src={project.image.src}
             alt={project.image.alt}
@@ -25,13 +80,14 @@ export default function ProjectHeroPreview({ project }: ProjectHeroPreviewProps)
             className="object-contain"
           />
         </div>
+        {mediaControls}
       </div>
     );
   }
 
   return (
     <div className="mx-auto mt-10 w-full max-w-3xl">
-      <div className="rounded-md border border-white/10 bg-slate-950 p-4 shadow-md shadow-black/20 sm:p-6">
+      <div className="flex aspect-video flex-col justify-between rounded-md border border-white/10 bg-slate-950 p-4 shadow-md shadow-black/20 sm:p-6">
         <div className="flex items-center justify-between gap-4">
           <div className="flex gap-2">
             <span className="h-3 w-3 rounded-full bg-red-400" />
@@ -70,6 +126,7 @@ export default function ProjectHeroPreview({ project }: ProjectHeroPreviewProps)
           </div>
         </div>
       </div>
+      {mediaControls}
     </div>
   );
 }
