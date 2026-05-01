@@ -61,7 +61,7 @@ export default function Navbar() {
               }
               aria-expanded={isMenuOpen}
               aria-controls="mobile-navigation"
-              className="grid size-10 place-items-center rounded-md border border-white/10 text-zinc-300 transition-colors hover:border-red-300/40 hover:text-red-300 md:hidden"
+              className="grid size-10 place-items-center text-zinc-300 transition-colors hover:text-red-300 md:hidden"
               onClick={() => setIsMenuOpen((current) => !current)}
             >
               <FaBars className="h-4 w-4" aria-hidden="true" />
