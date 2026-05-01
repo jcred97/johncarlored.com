@@ -23,7 +23,7 @@ const socialIcons = {
 const containerStyles = {
   labelled: "mt-6 flex flex-wrap items-center gap-3",
   iconOnly: "mt-8 flex items-center gap-3",
-  footer: "flex items-center gap-6",
+  footer: "flex items-center justify-center gap-3 sm:gap-4",
 } satisfies Record<NonNullable<SocialLinksProps["variant"]>, string>;
 
 const linkStyles = {
