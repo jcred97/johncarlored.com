@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { FaArrowRight, FaRegStar } from "react-icons/fa";
 
-import ProjectCard from "../../../components/ProjectCard/ProjectCard";
 import SectionHeader from "../../../components/SectionHeader/SectionHeader";
+import ProjectCard from "../../projects/_components/ProjectCard/ProjectCard";
 import { featuredProjects } from "../../projects/projects.data";
 
 const featuredProjectsHeading = "Featured projects";

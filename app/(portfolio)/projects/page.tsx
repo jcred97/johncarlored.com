@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { FaRegFolderOpen } from "react-icons/fa";
 
-import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
+import ProjectCard from "./_components/ProjectCard/ProjectCard";
 import { projects } from "./projects.data";
 
 export const metadata: Metadata = {

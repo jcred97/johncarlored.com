@@ -5,7 +5,7 @@ import ProjectBackLink from "./_components/ProjectBackLink";
 import ProjectHero from "./_components/ProjectHero/ProjectHero";
 import ProjectOverview from "./_components/ProjectOverview";
 import { getProjectMetadata } from "./_lib/project-metadata";
-import { publicImageExists } from "../../../components/ProjectCard/public-image-exists";
+import { publicImageExists } from "../_lib/public-image-exists";
 import { getProjectBySlug, projects } from "../projects.data";
 
 type ProjectPageProps = {

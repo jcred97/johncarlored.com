@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import type { Project } from "../../../projects.data";
-import { previewStyles } from "../../../../../components/ProjectCard/preview-styles";
+import { previewStyles } from "../../../_lib/preview-styles";
 
 type ProjectHeroPreviewProps = {
   project: Project;

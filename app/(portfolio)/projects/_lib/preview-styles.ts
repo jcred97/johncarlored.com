@@ -1,4 +1,4 @@
-import type { Project } from "../../(portfolio)/projects/projects.data";
+import type { Project } from "../projects.data";
 
 export const previewStyles = {
   portfolio: {

@@ -45,6 +45,8 @@ app/
       hero/
     experience/
     projects/
+      _components/
+      _lib/
       [slug]/
     skills/
     contact/
@@ -68,7 +70,7 @@ Key content files:
 - `app/(portfolio)/skills/skills.data.ts`
   Skill group data
 
-Route-specific components live beside the route in private `_components` folders. Shared app components, such as the navbar, footer, and project cards, live in `app/components/`.
+Route-specific and domain-specific components live beside their route in private `_components` folders. Shared app components, such as the navbar and footer, live in `app/components/`.
 
 ## Development
 

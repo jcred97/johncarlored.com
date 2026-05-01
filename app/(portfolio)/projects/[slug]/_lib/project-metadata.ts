@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
+import { publicImageExists } from "../../_lib/public-image-exists";
 import type { Project } from "../../projects.data";
-import { publicImageExists } from "../../../../components/ProjectCard/public-image-exists";
 import { siteConfig } from "../../../../lib/site";
 
 export function getProjectMetadata(project: Project | undefined): Metadata {

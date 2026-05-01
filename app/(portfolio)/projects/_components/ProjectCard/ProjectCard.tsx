@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import type { Project } from "../../(portfolio)/projects/projects.data";
-import TagList from "../TagList/TagList";
-import { publicImageExists } from "./public-image-exists";
-import { previewStyles } from "./preview-styles";
+import TagList from "../../../../components/TagList/TagList";
+import { previewStyles } from "../../_lib/preview-styles";
+import { publicImageExists } from "../../_lib/public-image-exists";
+import type { Project } from "../../projects.data";
 
 type ProjectCardProps = {
   project: Project;
