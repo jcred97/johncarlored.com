@@ -2,6 +2,7 @@ import Link from "next/link";
 import { FaArrowRight, FaRegStar } from "react-icons/fa";
 
 import ProjectCard from "../../../components/ProjectCard/ProjectCard";
+import SectionHeader from "../../../components/SectionHeader/SectionHeader";
 import { featuredProjects } from "../../projects/projects.data";
 
 const featuredProjectsHeading = "Featured projects";
@@ -17,12 +18,7 @@ export default function FeaturedProjects() {
       <div className="mx-auto w-full max-w-6xl">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <div className="flex items-center gap-3">
-              <FaRegStar className="h-5 w-5 text-red-300" aria-hidden="true" />
-              <h2 className="text-3xl font-semibold tracking-normal text-foreground">
-                {featuredProjectsHeading}
-              </h2>
-            </div>
+            <SectionHeader icon={FaRegStar} title={featuredProjectsHeading} />
           </div>
           <Link
             href={viewAllHref}
