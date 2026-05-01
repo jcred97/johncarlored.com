@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FaRegCalendarAlt, FaTag } from "react-icons/fa";
 
+import TagList from "../../../../../components/TagList/TagList";
 import type { Project } from "../../../projects.data";
 import ProjectHeroActions from "./ProjectHeroActions";
 import ProjectHeroPreview from "./ProjectHeroPreview";
@@ -49,14 +50,7 @@ export default function ProjectHero({
 
         <div className="mt-8 flex flex-wrap items-center gap-2">
           <FaTag className="mr-2 h-4 w-4 text-zinc-500" aria-hidden="true" />
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-md bg-white/10 px-2.5 py-1 text-xs font-semibold text-zinc-200"
-            >
-              {tag}
-            </span>
-          ))}
+          <TagList tags={project.tags} variant="detail" />
         </div>
       </header>
     </>

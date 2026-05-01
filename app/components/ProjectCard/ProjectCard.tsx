@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import type { Project } from "../../(portfolio)/projects/projects.data";
+import TagList from "../TagList/TagList";
 import { publicImageExists } from "./public-image-exists";
 import { previewStyles } from "./preview-styles";
 
@@ -75,14 +76,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </p>
 
         <div className="mt-6 flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-md border border-white/10 bg-white/6 px-2.5 py-1 text-xs font-semibold text-zinc-200"
-            >
-              {tag}
-            </span>
-          ))}
+          <TagList tags={project.tags} />
         </div>
       </div>
     </Link>
