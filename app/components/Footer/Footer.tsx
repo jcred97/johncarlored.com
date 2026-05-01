@@ -1,12 +1,5 @@
-import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
-
 import { hero } from "../../(portfolio)/_home/hero/hero.data";
-
-const socialIcons = {
-  GitHub: FaGithub,
-  LinkedIn: FaLinkedin,
-  Email: FaEnvelope,
-};
+import SocialLinks from "../SocialLinks/SocialLinks";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -17,25 +10,7 @@ export default function Footer() {
         <p>
           &copy; {year} John Carlo Red
         </p>
-        <div className="flex items-center gap-6">
-          {hero.socialLinks.map((link) => {
-            const Icon = socialIcons[link.label];
-            const opensInNewTab = !link.href.startsWith("mailto:");
-
-            return (
-              <a
-                key={link.label}
-                href={link.href}
-                target={opensInNewTab ? "_blank" : undefined}
-                rel={opensInNewTab ? "noreferrer" : undefined}
-                aria-label={link.label}
-                className="text-zinc-400 transition-colors hover:text-red-300"
-              >
-                <Icon className="h-5 w-5" aria-hidden="true" />
-              </a>
-            );
-          })}
-        </div>
+        <SocialLinks links={hero.socialLinks} variant="footer" />
       </div>
     </footer>
   );

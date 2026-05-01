@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
+import SocialLinks from "../../components/SocialLinks/SocialLinks";
 import { siteConfig } from "../../lib/site";
 import ContactDetails from "./_components/ContactDetails";
 import ContactForm from "./_components/ContactForm";
-import ContactSocialLinks from "./_components/ContactSocialLinks";
 import { contactContent } from "./contact.data";
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ export default function ContactPage() {
 
             <ContactDetails details={contactContent.details} />
 
-            <ContactSocialLinks links={contactContent.socialLinks} />
+            <SocialLinks links={contactContent.socialLinks} variant="iconOnly" />
           </div>
 
           <div className="relative lg:pt-6">

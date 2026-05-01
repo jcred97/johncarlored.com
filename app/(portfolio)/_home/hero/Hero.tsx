@@ -1,8 +1,8 @@
 import { FaLocationDot } from "react-icons/fa6";
 
+import SocialLinks from "../../../components/SocialLinks/SocialLinks";
 import HeroActions from "./_components/HeroActions";
 import HeroProfileImage from "./_components/HeroProfileImage";
-import HeroSocialLinks from "./_components/HeroSocialLinks";
 import HeroWorkedWith from "./_components/HeroWorkedWith";
 import { hero } from "./hero.data";
 
@@ -32,7 +32,7 @@ export default function Hero() {
             <p key={detail}>{detail}</p>
           ))}
         </div>
-        <HeroSocialLinks links={hero.socialLinks} />
+        <SocialLinks links={hero.socialLinks} />
         <HeroActions
           primaryAction={hero.primaryAction}
           secondaryAction={hero.secondaryAction}
