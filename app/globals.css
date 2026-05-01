@@ -43,7 +43,6 @@ body {
     linear-gradient(315deg, #2a0909 0%, var(--background-color) 74%);
   color: var(--foreground);
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
-  animation: fadeIn 0.8s ease;
 }
 
 h1,
@@ -55,18 +54,3 @@ h6 {
   font-family: var(--font-sora), var(--font-inter), Arial, Helvetica, sans-serif;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  body {
-    animation: none;
-  }
-}

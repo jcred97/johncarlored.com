@@ -24,7 +24,8 @@ export default function HeroProfileImage({
           alt={alt}
           width={width}
           height={height}
-          preload
+          loading="eager"
+          fetchPriority="high"
           sizes="(min-width: 1024px) 376px, (min-width: 640px) 288px, 256px"
           className="relative z-0 h-auto w-full rounded-[1.15rem] border border-white/10 saturate-95 contrast-105"
         />
