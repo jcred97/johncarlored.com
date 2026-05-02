@@ -11,12 +11,16 @@ type PortfolioOgImageOptions = {
   title: string;
   eyebrow?: string;
   description: string;
+  metaItems?: string[];
+  footerLabel?: string;
 };
 
 export function createPortfolioOgImage({
   title,
   eyebrow = siteConfig.role,
   description,
+  metaItems = [],
+  footerLabel = "Salesforce Developer Portfolio",
 }: PortfolioOgImageOptions) {
   return new ImageResponse(
     (
@@ -73,6 +77,33 @@ export function createPortfolioOgImage({
           >
             {description}
           </p>
+          {metaItems.length > 0 ? (
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 14,
+                maxWidth: 920,
+              }}
+            >
+              {metaItems.map((item) => (
+                <span
+                  key={item}
+                  style={{
+                    border: "1px solid rgba(253,164,175,0.38)",
+                    borderRadius: 999,
+                    background: "rgba(253,164,175,0.12)",
+                    color: "#fecdd3",
+                    fontSize: 24,
+                    fontWeight: 700,
+                    padding: "10px 18px",
+                  }}
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          ) : null}
         </div>
 
         <div
@@ -87,7 +118,7 @@ export function createPortfolioOgImage({
           }}
         >
           <span>johncarlored.com</span>
-          <span>Salesforce Developer Portfolio</span>
+          <span>{footerLabel}</span>
         </div>
       </div>
     ),

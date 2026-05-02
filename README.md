@@ -28,7 +28,7 @@ This portfolio presents John Carlo Red as a Salesforce Developer through a small
 - `Contact`
   Provides contact details, social links, and an email-based contact form.
 
-The portfolio content is intentionally driven by local data files so the UI stays reusable while text, links, dates, PDFs, and images can be updated without rewriting layout components. The app also includes a responsive navbar with active route states and a mobile slide-over drawer, plus generated Open Graph image routes for cleaner previews when links are shared.
+The portfolio content is intentionally driven by local data files so the UI stays reusable while text, links, dates, PDFs, and images can be updated without rewriting layout components. The app also includes a responsive navbar with active route states and a mobile slide-over drawer, plus generated Open Graph image routes with project-specific preview details for cleaner shared links.
 
 ## Main Tech Stack
 
@@ -118,7 +118,7 @@ npm run lint
 
 - Project, experience, skills, and certification sections are data-driven.
 - Project detail pages use `generateStaticParams` and route-specific metadata.
-- Open Graph and Twitter metadata are generated through shared helpers, with custom generated preview images for the home page, projects, project details, and certifications.
+- Open Graph and Twitter metadata are generated through shared helpers, with custom generated preview images for the home page, projects, project details, and certifications. Project detail previews include status and top technology tags from the shared project data.
 - Public assets are stored in `public/` and referenced by path from the app.
 - Certification PDFs live in `public/certifications/` and open in a new tab from each certification card.
 - The resume button opens the PDF in a new tab from `public/John-Carlo-Red-resume.pdf`.

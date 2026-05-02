@@ -117,8 +117,8 @@ export const projects: Project[] = [
         embedUrl: "https://www.youtube.com/embed/STil-gj3jU8",
       },
     ],
-    status: "In progress",
-    timeline: "March 2, 2026 - Present",
+    status: "Completed",
+    timeline: "March 2, 2026 - April 24, 2026",
     githubUrl: "https://github.com/jcred97/sf-workfolio",
     tags: [
       "Salesforce",
