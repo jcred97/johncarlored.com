@@ -2,17 +2,18 @@ import type { Metadata } from "next";
 import { FaCertificate } from "react-icons/fa";
 
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
+import { createPageMetadata } from "../../lib/metadata";
 import CertificationCard from "./_components/CertificationCard";
 import { certifications } from "./certifications.data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Certifications",
   description:
     "View John Carlo Red's Salesforce and technology certifications with supporting PDF credentials.",
-  alternates: {
-    canonical: "/certifications",
-  },
-};
+  path: "/certifications",
+  image: "/og/certifications",
+  imageAlt: "Salesforce certifications by John Carlo Red",
+});
 
 export default function CertificationsPage() {
   return (

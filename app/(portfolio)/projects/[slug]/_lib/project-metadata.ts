@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 
-import { publicImageExists } from "../../_lib/public-image-exists";
 import type { Project } from "../../projects.data";
-import { siteConfig } from "../../../../lib/site";
+import { createPageMetadata } from "../../../../lib/metadata";
 
 export function getProjectMetadata(project: Project | undefined): Metadata {
   if (!project) {
@@ -15,35 +14,14 @@ export function getProjectMetadata(project: Project | undefined): Metadata {
     };
   }
 
-  const imageUrl = publicImageExists(project.image.src)
-    ? project.image.src
-    : siteConfig.ogImage.url;
-
-  return {
+  return createPageMetadata({
     title: {
       absolute: project.title,
     },
     description: project.description,
-    alternates: {
-      canonical: `/projects/${project.slug}`,
-    },
-    openGraph: {
-      title: `${project.title} | ${siteConfig.name}`,
-      description: project.description,
-      url: `/projects/${project.slug}`,
-      type: "article",
-      images: [
-        {
-          url: imageUrl,
-          alt: project.image.alt,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${project.title} | ${siteConfig.name}`,
-      description: project.description,
-      images: [imageUrl],
-    },
-  };
+    path: `/projects/${project.slug}`,
+    image: `/og/projects/${project.slug}`,
+    imageAlt: `${project.title} project by John Carlo Red`,
+    type: "article",
+  });
 }

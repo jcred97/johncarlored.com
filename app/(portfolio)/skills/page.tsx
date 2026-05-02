@@ -2,17 +2,16 @@ import type { Metadata } from "next";
 import { TbTool } from "react-icons/tb";
 
 import SectionHeader from "../../components/SectionHeader/SectionHeader";
+import { createPageMetadata } from "../../lib/metadata";
 import SkillsGroups from "./_components/SkillsGroups";
 import { skillGroups } from "./skills.data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Skills",
   description:
     "See John Carlo Red's Salesforce, frontend, and development skills across platforms, tools, and implementation areas.",
-  alternates: {
-    canonical: "/skills",
-  },
-};
+  path: "/skills",
+});
 
 export default function SkillsPage() {
   return (

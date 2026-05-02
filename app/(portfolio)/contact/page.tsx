@@ -1,19 +1,18 @@
 import type { Metadata } from "next";
 
 import SocialLinks from "../../components/SocialLinks/SocialLinks";
+import { createPageMetadata } from "../../lib/metadata";
 import { siteConfig } from "../../lib/site";
 import ContactDetails from "./_components/ContactDetails";
 import ContactForm from "./_components/ContactForm";
 import { contactContent } from "./contact.data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Contact",
   description:
     "Get in touch with John Carlo Red for Salesforce roles, collaboration, and project inquiries.",
-  alternates: {
-    canonical: "/contact",
-  },
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

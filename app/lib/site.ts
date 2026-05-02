@@ -22,10 +22,10 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/jcdred/",
   },
   ogImage: {
-    url: "/images/profile/john-carlo-red-hero-portrait-v2.jpg",
-    width: 1149,
-    height: 1368,
-    alt: "Portrait of John Carlo Red",
+    url: "/og",
+    width: 1200,
+    height: 630,
+    alt: "John Carlo Red Salesforce Developer portfolio",
   },
 } as const;
 

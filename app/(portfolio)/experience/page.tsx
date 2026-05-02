@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
 
+import { createPageMetadata } from "../../lib/metadata";
 import ExperienceTabs from "./_components/ExperienceTabs";
 import { experience } from "./experience.data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Experience",
   description:
     "View John Carlo Red's Salesforce development experience, education timeline, and roles across multiple organizations.",
-  alternates: {
-    canonical: "/experience",
-  },
-};
+  path: "/experience",
+});
 
 export default function ExperiencePage() {
   return (
