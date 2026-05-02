@@ -28,7 +28,7 @@ This portfolio presents John Carlo Red as a Salesforce Developer through a small
 - `Contact`
   Provides contact details, social links, and an email-based contact form.
 
-The portfolio content is intentionally driven by local data files so the UI stays reusable while text, links, dates, PDFs, and images can be updated without rewriting layout components. The app also includes a responsive navbar with a mobile slide-over drawer and generated Open Graph image routes for cleaner previews when links are shared.
+The portfolio content is intentionally driven by local data files so the UI stays reusable while text, links, dates, PDFs, and images can be updated without rewriting layout components. The app also includes a responsive navbar with active route states and a mobile slide-over drawer, plus generated Open Graph image routes for cleaner previews when links are shared.
 
 ## Main Tech Stack
 

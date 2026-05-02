@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState, ViewTransition } from "react";
 import { FaBars, FaXmark } from "react-icons/fa6";
 
@@ -12,8 +13,14 @@ const navItems = [
   { label: "Contact", href: "/contact" },
 ];
 
+function isActivePath(pathname: string, href: string) {
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export default function Navbar() {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isHomeActive = pathname === "/";
 
   useEffect(() => {
     function closeOnEscape(event: KeyboardEvent) {
@@ -49,7 +56,12 @@ export default function Navbar() {
           <div className="flex items-center justify-between gap-8">
             <Link
               href="/"
-              className="font-semibold text-zinc-100 transition-colors hover:text-red-300"
+              aria-current={isHomeActive ? "page" : undefined}
+              className={`font-semibold transition-colors ${
+                isHomeActive
+                  ? "text-red-300"
+                  : "text-zinc-100 hover:text-red-300"
+              }`}
               onClick={() => setIsMenuOpen(false)}
             >
               JOHN CARLO RED
@@ -68,15 +80,24 @@ export default function Navbar() {
             </button>
 
             <div className="hidden items-center justify-end gap-8 text-center md:flex">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-zinc-300 transition-colors hover:text-red-300"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const isActive = isActivePath(pathname, item.href);
+
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`transition-colors ${
+                      isActive
+                        ? "text-red-300"
+                        : "text-zinc-300 hover:text-red-300"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </nav>
@@ -120,17 +141,26 @@ export default function Navbar() {
             </div>
 
             <div className="grid gap-2 px-3 py-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="rounded-md px-3 py-3 text-base font-semibold text-zinc-300 transition-colors hover:bg-white/[0.05] hover:text-red-300"
-                  onClick={() => setIsMenuOpen(false)}
-                  tabIndex={isMenuOpen ? 0 : -1}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const isActive = isActivePath(pathname, item.href);
+
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`rounded-md px-3 py-3 text-base font-semibold transition-colors ${
+                      isActive
+                        ? "bg-red-300/10 text-red-200"
+                        : "text-zinc-300 hover:bg-white/[0.05] hover:text-red-300"
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                    tabIndex={isMenuOpen ? 0 : -1}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>
