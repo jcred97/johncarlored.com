@@ -18,7 +18,7 @@ This portfolio presents John Carlo Red as a Salesforce Developer through a small
 - `Home`
   Highlights the hero section, current role, featured companies, selected projects, and supporting portfolio sections.
 - `Projects`
-  Shows data-driven case studies for `sf-portfolio-website` and `sf-spendly`.
+  Shows data-driven case studies for `sf-portfolio-website`, `salesforce-power-dialer-workspace`, and `sf-spendly`.
 - `Experience`
   Renders a tabbed timeline for work history and education using shared structured data.
 - `Skills`
@@ -76,7 +76,7 @@ Key content files:
 - `app/(portfolio)/contact/contact.data.ts`
   Contact page copy, contact details, and social links
 - `app/(portfolio)/projects/projects.data.ts`
-  Project cards, featured-project selection, and slug-page content
+  Project cards, first-two featured-project selection, slug-page content, optional demo videos, and optional screenshot galleries
 - `app/(portfolio)/experience/experience.data.ts`
   Work and education timeline data
 - `app/(portfolio)/skills/skills.data.ts`
@@ -118,6 +118,7 @@ npm run lint
 
 - Project, experience, skills, and certification sections are data-driven.
 - Project detail pages use `generateStaticParams` and route-specific metadata.
+- Project detail previews support an optional screenshot gallery through each project's `galleryImages` data, and image previews can be opened in a larger focused view.
 - Open Graph and Twitter metadata are generated through shared helpers, with custom generated preview images for the home page, projects, project details, and certifications. Project detail previews include status and top technology tags from the shared project data.
 - Public assets are stored in `public/` and referenced by path from the app.
 - Certification PDFs live in `public/certifications/` and open in a new tab from each certification card.

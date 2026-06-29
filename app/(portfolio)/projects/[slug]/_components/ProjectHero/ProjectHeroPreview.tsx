@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { FaExpand, FaXmark } from "react-icons/fa6";
 
 import type { Project } from "../../../projects.data";
 import { previewStyles } from "../../../_lib/preview-styles";
@@ -7,7 +9,9 @@ type ProjectHeroPreviewProps = {
   project: Project;
   hasCoverImage: boolean;
   activeDemoIndex: number | null;
+  activeGalleryIndex: number | null;
   onSelectPreview: () => void;
+  onSelectGalleryImage: (index: number) => void;
   onSelectDemo: (index: number) => void;
 };
 
@@ -15,25 +19,51 @@ export default function ProjectHeroPreview({
   project,
   hasCoverImage,
   activeDemoIndex,
+  activeGalleryIndex,
   onSelectPreview,
+  onSelectGalleryImage,
   onSelectDemo,
 }: ProjectHeroPreviewProps) {
+  const [expandedImage, setExpandedImage] = useState<{
+    src: string;
+    alt: string;
+    title: string;
+  } | null>(null);
   const previewStyle = previewStyles[project.accent];
   const activeDemo = activeDemoIndex === null ? undefined : project.demoVideos?.[activeDemoIndex];
-  const mediaControls = project.demoVideos?.length ? (
+  const activeGalleryImage =
+    activeGalleryIndex === null ? undefined : project.galleryImages?.[activeGalleryIndex];
+  const hasMediaControls = Boolean(
+    project.galleryImages?.length || project.demoVideos?.length,
+  );
+  const mediaControls = hasMediaControls ? (
     <div className="mt-4 flex flex-wrap gap-2">
       <button
         type="button"
         onClick={onSelectPreview}
         className={`inline-flex h-9 cursor-pointer items-center justify-center rounded-md px-3 text-xs font-semibold transition-colors ${
-          activeDemoIndex === null
+          activeDemoIndex === null && activeGalleryIndex === null
             ? "bg-white text-slate-950"
             : "border border-white/12 bg-white/4 text-zinc-100 hover:border-red-200/40 hover:text-red-100"
         }`}
       >
         Preview
       </button>
-      {project.demoVideos.map((demoVideo, index) => (
+      {project.galleryImages?.map((galleryImage, index) => (
+        <button
+          key={galleryImage.src}
+          type="button"
+          onClick={() => onSelectGalleryImage(index)}
+          className={`inline-flex h-9 cursor-pointer items-center justify-center rounded-md px-3 text-xs font-semibold transition-colors ${
+            activeGalleryIndex === index
+              ? "bg-white text-slate-950"
+              : "border border-white/12 bg-white/4 text-zinc-100 hover:border-red-200/40 hover:text-red-100"
+          }`}
+        >
+          {galleryImage.title}
+        </button>
+      ))}
+      {project.demoVideos?.map((demoVideo, index) => (
         <button
           key={demoVideo.embedUrl}
           type="button"
@@ -49,6 +79,103 @@ export default function ProjectHeroPreview({
       ))}
     </div>
   ) : null;
+
+  useEffect(() => {
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setExpandedImage(null);
+      }
+    }
+
+    if (!expandedImage) {
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [expandedImage]);
+
+  const expandedImageDialog = expandedImage ? (
+    <div
+      className="fixed inset-0 z-[90] grid place-items-center bg-slate-950/92 px-4 py-6 backdrop-blur-sm sm:px-6"
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${expandedImage.title} enlarged preview`}
+    >
+      <button
+        type="button"
+        aria-label="Close enlarged preview"
+        className="absolute inset-0 cursor-zoom-out"
+        onClick={() => setExpandedImage(null)}
+      />
+      <div className="relative z-10 flex max-h-[92vh] w-full max-w-7xl flex-col">
+        <div className="mb-3 flex items-center justify-between gap-4">
+          <p className="min-w-0 truncate text-sm font-semibold text-zinc-100">
+            {expandedImage.title}
+          </p>
+          <button
+            type="button"
+            aria-label="Close enlarged preview"
+            title="Close preview"
+            className="grid size-10 shrink-0 place-items-center rounded-md border border-white/10 bg-white/8 text-zinc-100 transition-colors hover:border-red-200/40 hover:text-red-100"
+            onClick={() => setExpandedImage(null)}
+          >
+            <FaXmark className="h-4 w-4" aria-hidden="true" />
+          </button>
+        </div>
+        <div className="relative min-h-0 flex-1 overflow-hidden rounded-md border border-white/10 bg-slate-950 shadow-2xl shadow-black/50">
+          <Image
+            src={expandedImage.src}
+            alt={expandedImage.alt}
+            width={1920}
+            height={1080}
+            sizes="100vw"
+            className="max-h-[84vh] w-full object-contain"
+          />
+        </div>
+      </div>
+    </div>
+  ) : null;
+
+  function imagePreviewButton({
+    src,
+    alt,
+    title,
+  }: {
+    src: string;
+    alt: string;
+    title: string;
+  }) {
+    return (
+      <>
+        <button
+          type="button"
+          aria-label={`Open ${title} enlarged preview`}
+          title="Open larger preview"
+          className="group relative aspect-video w-full cursor-zoom-in overflow-hidden rounded-md border border-white/10 bg-slate-950 shadow-md shadow-black/20"
+          onClick={() => setExpandedImage({ src, alt, title })}
+        >
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 768px"
+            className="object-contain"
+          />
+          <span className="absolute right-3 top-3 grid size-9 place-items-center rounded-md border border-white/10 bg-slate-950/80 text-zinc-100 opacity-0 shadow-md shadow-black/20 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+            <FaExpand className="h-3.5 w-3.5" aria-hidden="true" />
+          </span>
+        </button>
+        {expandedImageDialog}
+      </>
+    );
+  }
 
   if (activeDemo) {
     return (
@@ -67,19 +194,27 @@ export default function ProjectHeroPreview({
     );
   }
 
+  if (activeGalleryImage) {
+    return (
+      <div className="mx-auto mt-10 w-full max-w-3xl">
+        {imagePreviewButton({
+          src: activeGalleryImage.src,
+          alt: activeGalleryImage.alt,
+          title: activeGalleryImage.title,
+        })}
+        {mediaControls}
+      </div>
+    );
+  }
+
   if (hasCoverImage) {
     return (
       <div className="mx-auto mt-10 w-full max-w-3xl">
-        <div className="relative aspect-video overflow-hidden rounded-md border border-white/10 bg-slate-950 shadow-md shadow-black/20">
-          <Image
-            src={project.image.src}
-            alt={project.image.alt}
-            fill
-            priority
-            sizes="(max-width: 768px) 100vw, 768px"
-            className="object-contain"
-          />
-        </div>
+        {imagePreviewButton({
+          src: project.image.src,
+          alt: project.image.alt,
+          title: "Preview",
+        })}
         {mediaControls}
       </div>
     );

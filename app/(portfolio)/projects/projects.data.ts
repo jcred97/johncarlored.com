@@ -19,6 +19,11 @@ export type Project = {
     title: string;
     embedUrl: string;
   }[];
+  galleryImages?: {
+    title: string;
+    src: string;
+    alt: string;
+  }[];
   status: string;
   timeline: string;
   githubUrl?: string;
@@ -40,7 +45,6 @@ export const projects: Project[] = [
     title: "Salesforce Portfolio Website",
     owner: "experience-cloud",
     accent: "portfolio",
-    featured: true,
     description:
       "A data-driven personal portfolio built on Salesforce Experience Cloud using Lightning Web Components.",
     summary:
@@ -141,6 +145,120 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "salesforce-power-dialer-workspace",
+    title: "Salesforce - Power Dialer Workspace",
+    owner: "salesforce-dialer",
+    accent: "crm",
+    featured: true,
+    description:
+      "A custom Salesforce Lightning workspace for managing lead and opportunity follow-ups through prioritized queues, record previews, filters, click-to-dial actions, and integrated sales context.",
+    summary:
+      "Salesforce Power Dialer Workspace is a confidential client project built to help sales reps work through lead and opportunity follow-ups more efficiently. It brings queue management, owner and priority filtering, selected-record context, guided click-to-dial sessions, notes, task scheduling, integrated customer signals, and sales stage controls into a focused Lightning interface.",
+    overview: {
+      intro: [
+        "Problem: Sales reps had to move between lead and opportunity list views, full Salesforce records, Shopify checkout/order details, marketing engagement history, live chat context, notes, tasks, and phone actions to prepare for follow-up calls.",
+        "Solution: Built a custom Lightning Web Components workspace that centralizes lead and opportunity queues, owner and priority filters, selected-record quick views, guided click-to-dial controls, notes, tasks, stage updates, callback handling, and integrated customer context in one Salesforce screen.",
+        "Impact: Gave sales reps a single Salesforce workbench for prioritizing open follow-up, calling the current record, reviewing Shopify, Tidio, Klaviyo, and Aircall context, updating notes and stages, scheduling callbacks, and moving through the queue without opening multiple systems or Salesforce record pages.",
+      ],
+      featureHeading: "Key features",
+      features: [
+        {
+          title: "Lead and opportunity queues",
+          description:
+            "Displayed open follow-up records with owner, readiness status, stage, source, next task, and activity context.",
+        },
+        {
+          title: "Owner and priority filters",
+          description:
+            "Helped users narrow the workspace by owner, record type, priority, and queue readiness.",
+        },
+        {
+          title: "Selected-record quick view",
+          description:
+            "Showed important lead or opportunity details without requiring users to open the full Salesforce record.",
+        },
+        {
+          title: "Integrated customer context",
+          description:
+            "Surfaced Shopify order and checkout details, Klaviyo engagement signals, Tidio or livechat context, Aircall call summaries, product context, source timing, notes, and readiness gaps beside the call action.",
+        },
+        {
+          title: "Quick call workflow",
+          description:
+            "Provided click-to-dial actions from the selected record to support faster outbound follow-up.",
+        },
+        {
+          title: "Guided call session",
+          description:
+            "Supported an active outbound workflow with current-record position, call-current action, skip and next-call controls, stop-dialing state, and live queue progress.",
+        },
+        {
+          title: "Stage and status controls",
+          description:
+            "Allowed users to update sales progress and readiness state from the workspace.",
+        },
+        {
+          title: "Callback and task handling",
+          description:
+            "Displayed overdue task details and supported scheduling follow-up callbacks without leaving the dialer.",
+        },
+        {
+          title: "Dialer queue management",
+          description:
+            "Supported adding and removing records from the active calling workflow.",
+        },
+        {
+          title: "Notes visibility",
+          description:
+            "Displayed notes and customer context alongside the call action.",
+        },
+        {
+          title: "Callback and reminder handling",
+          description:
+            "Supported scheduled follow-up tasks, timed callback reminders, and calendar events so reps could return to records at the right time.",
+        },
+      ],
+      closing: [
+        "I built the LWC workspace, Apex-backed queue loading, pagination, owner scoping, priority sorting, filtering, selected-record state, guided dialing controls, record actions, callback handling, and stage/status updates that powered the lead and opportunity follow-up flow.",
+        "Privacy note: Because the original implementation contains client records, contact details, and business data, the portfolio preview uses recreated sample data while preserving the interface structure and workflow.",
+      ],
+    },
+    status: "Completed",
+    timeline: "June 1, 2026 - June 26, 2026",
+    galleryImages: [
+      {
+        title: "Active Dialing",
+        src: "/images/projects/salesforce-power-dialer-workspace/active-dialing.png",
+        alt: "Active dialing mode in the Salesforce Power Dialer Workspace",
+      },
+      {
+        title: "Record Preview",
+        src: "/images/projects/salesforce-power-dialer-workspace/record-preview.png",
+        alt: "Selected opportunity preview with contact details, task context, and callback scheduling controls",
+      },
+      {
+        title: "Callback Reminders",
+        src: "/images/projects/salesforce-power-dialer-workspace/notification.png",
+        alt: "Salesforce callback reminder from the Power Dialer follow-up workflow",
+      },
+    ],
+    tags: [
+      "Salesforce",
+      "Lightning Web Components",
+      "Apex",
+      "SOQL",
+      "Sales Cloud",
+      "CRM Workflow",
+      "Integrations",
+    ],
+    role: "Salesforce Developer",
+    links: [],
+    image: {
+      src: "/images/projects/salesforce-power-dialer-workspace/cover.png",
+      alt: "Salesforce Power Dialer Workspace preview",
+    },
+  },
+  {
     slug: "sf-spendly",
     title: "Spendly",
     owner: "finance-dashboard",
@@ -228,7 +346,9 @@ export const projects: Project[] = [
   },
 ];
 
-export const featuredProjects = projects.filter((project) => project.featured);
+export const featuredProjects = projects
+  .filter((project) => project.featured)
+  .slice(0, 2);
 
 // Keep lookups constant-time as the project list grows.
 const projectsBySlug = new Map(projects.map((project) => [project.slug, project]));

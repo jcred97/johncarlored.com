@@ -20,6 +20,24 @@ export default function ProjectHero({
   hasCoverImage,
 }: ProjectHeroProps) {
   const [activeDemoIndex, setActiveDemoIndex] = useState<number | null>(null);
+  const [activeGalleryIndex, setActiveGalleryIndex] = useState<number | null>(
+    null,
+  );
+
+  function selectPreview() {
+    setActiveDemoIndex(null);
+    setActiveGalleryIndex(null);
+  }
+
+  function selectGalleryImage(index: number) {
+    setActiveDemoIndex(null);
+    setActiveGalleryIndex(index);
+  }
+
+  function selectDemo(index: number) {
+    setActiveGalleryIndex(null);
+    setActiveDemoIndex(index);
+  }
 
   return (
     <>
@@ -27,8 +45,10 @@ export default function ProjectHero({
         project={project}
         hasCoverImage={hasCoverImage}
         activeDemoIndex={activeDemoIndex}
-        onSelectPreview={() => setActiveDemoIndex(null)}
-        onSelectDemo={setActiveDemoIndex}
+        activeGalleryIndex={activeGalleryIndex}
+        onSelectPreview={selectPreview}
+        onSelectGalleryImage={selectGalleryImage}
+        onSelectDemo={selectDemo}
       />
 
       <header className="mt-10">
