@@ -39,9 +39,9 @@ export type Project = {
   };
 };
 
-export const projects: Project[] = [
+const projectItems: Project[] = [
   {
-    slug: "sf-portfolio-website",
+    slug: "salesforce-portfolio-website",
     title: "Salesforce Portfolio Website",
     owner: "experience-cloud",
     accent: "portfolio",
@@ -259,8 +259,8 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "sf-spendly",
-    title: "Spendly",
+    slug: "salesforce-spendly",
+    title: "Salesforce - Spendly",
     owner: "finance-dashboard",
     accent: "app",
     featured: true,
@@ -345,6 +345,18 @@ export const projects: Project[] = [
     },
   },
 ];
+
+const projectDisplayOrder = new Map([
+  ["salesforce-power-dialer-workspace", 0],
+  ["salesforce-spendly", 1],
+  ["salesforce-portfolio-website", 2],
+]);
+
+export const projects = [...projectItems].sort(
+  (firstProject, secondProject) =>
+    (projectDisplayOrder.get(firstProject.slug) ?? projectItems.length) -
+    (projectDisplayOrder.get(secondProject.slug) ?? projectItems.length),
+);
 
 export const featuredProjects = projects
   .filter((project) => project.featured)

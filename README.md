@@ -18,7 +18,7 @@ This portfolio presents John Carlo Red as a Salesforce Developer through a small
 - `Home`
   Highlights the hero section, current role, featured companies, selected projects, and supporting portfolio sections.
 - `Projects`
-  Shows data-driven case studies for `sf-portfolio-website`, `salesforce-power-dialer-workspace`, and `sf-spendly`.
+  Shows selected Salesforce project and client feature write-ups for `salesforce-power-dialer-workspace`, `salesforce-spendly`, and `salesforce-portfolio-website`.
 - `Experience`
   Renders a tabbed timeline for work history and education using shared structured data.
 - `Skills`
