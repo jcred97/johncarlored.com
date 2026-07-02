@@ -27,12 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: absoluteUrl("/skills"),
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
       url: absoluteUrl("/certifications"),
       lastModified,
       changeFrequency: "monthly",

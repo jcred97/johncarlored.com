@@ -6,7 +6,6 @@ import { useEffect, useState, ViewTransition } from "react";
 import { FaBars, FaXmark } from "react-icons/fa6";
 
 const navItems = [
-  { label: "Skills", href: "/skills" },
   { label: "Projects", href: "/projects" },
   { label: "Experience", href: "/experience" },
   { label: "Certifications", href: "/certifications" },

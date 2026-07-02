@@ -6,7 +6,6 @@ The site is designed as a clean portfolio for showcasing:
 - a hero section with resume and social links
 - selected Salesforce projects
 - a tabbed experience timeline for work and education
-- grouped technical skills
 - Salesforce certification cards with PDF credential links
 - a contact page for professional inquiries
 - generated social preview images for richer shared links
@@ -21,8 +20,6 @@ This portfolio presents John Carlo Red as a Salesforce Developer through a small
   Shows selected Salesforce project and client feature write-ups for `salesforce-power-dialer-workspace`, `salesforce-spendly`, and `salesforce-portfolio-website`.
 - `Experience`
   Renders a tabbed timeline for work history and education using shared structured data.
-- `Skills`
-  Displays grouped skill cards with a responsive layout.
 - `Certifications`
   Displays Salesforce certification cards with issue dates, credential IDs, descriptions, and links to supporting PDF files.
 - `Contact`
@@ -80,7 +77,7 @@ Key content files:
 - `app/(portfolio)/experience/experience.data.ts`
   Work and education timeline data
 - `app/(portfolio)/skills/skills.data.ts`
-  Skill group data
+  Skill group data for the unlinked skills page
 - `app/(portfolio)/certifications/certifications.data.ts`
   Certification card content, issue dates, credential IDs, summaries, and PDF paths
 
@@ -117,6 +114,7 @@ npm run lint
 ## Notes
 
 - Project, experience, skills, and certification sections are data-driven.
+- The `/skills` route is retained in the codebase but is not linked from the primary navigation or included in the sitemap.
 - Project detail pages use `generateStaticParams` and route-specific metadata.
 - Project detail previews support an optional screenshot gallery through each project's `galleryImages` data, and image previews can be opened in a larger focused view.
 - Open Graph and Twitter metadata are generated through shared helpers, with custom generated preview images for the home page, projects, project details, and certifications. Project detail previews include status and top technology tags from the shared project data.
