@@ -3,7 +3,6 @@ import { FaLocationDot } from "react-icons/fa6";
 import SocialLinks from "../../../components/SocialLinks/SocialLinks";
 import HeroActions from "./_components/HeroActions";
 import HeroProfileImage from "./_components/HeroProfileImage";
-import HeroWorkedWith from "./_components/HeroWorkedWith";
 import { hero } from "./hero.data";
 
 export default function Hero() {
@@ -44,7 +43,6 @@ export default function Hero() {
         width={hero.image.width}
         height={hero.image.height}
       />
-      <HeroWorkedWith label={hero.workedWith.label} companies={hero.workedWith.companies} />
     </section>
   );
 }

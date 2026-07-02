@@ -16,7 +16,7 @@ The site is designed as a clean portfolio for showcasing:
 This portfolio presents John Carlo Red as a Salesforce Developer through a small set of focused pages:
 
 - `Home`
-  Highlights the hero section, current role, featured companies, selected projects, and supporting portfolio sections.
+  Highlights the hero section, current role, selected projects, and supporting portfolio sections.
 - `Projects`
   Shows selected Salesforce project and client feature write-ups for `salesforce-power-dialer-workspace`, `salesforce-spendly`, and `salesforce-portfolio-website`.
 - `Experience`
@@ -72,7 +72,7 @@ public/
 Key content files:
 
 - `app/(portfolio)/_home/hero/hero.data.ts`
-  Hero copy, portrait, social links, resume link, and worked-with logos
+  Hero copy, portrait, social links, and resume link
 - `app/(portfolio)/contact/contact.data.ts`
   Contact page copy, contact details, and social links
 - `app/(portfolio)/projects/projects.data.ts`
