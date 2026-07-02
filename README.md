@@ -116,7 +116,7 @@ npm run lint
 - Project, experience, skills, and certification sections are data-driven.
 - The `/skills` route is retained in the codebase but is not linked from the primary navigation or included in the sitemap.
 - Project detail pages use `generateStaticParams` and route-specific metadata.
-- Project detail previews support an optional screenshot gallery through each project's `galleryImages` data, and image previews can be opened in a larger focused view.
+- Project detail previews support an optional screenshot gallery through each project's `galleryImages` data, and image previews can be opened in a larger focused view with previous/next browsing.
 - Open Graph and Twitter metadata are generated through shared helpers, with custom generated preview images for the home page, projects, project details, and certifications. Project detail previews include status and top technology tags from the shared project data.
 - Public assets are stored in `public/` and referenced by path from the app.
 - Certification PDFs live in `public/certifications/` and open in a new tab from each certification card.

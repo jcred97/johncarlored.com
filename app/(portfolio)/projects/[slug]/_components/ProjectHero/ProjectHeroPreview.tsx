@@ -1,6 +1,11 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { FaExpand, FaXmark } from "react-icons/fa6";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import {
+  FaChevronLeft,
+  FaChevronRight,
+  FaExpand,
+  FaXmark,
+} from "react-icons/fa6";
 
 import type { Project } from "../../../projects.data";
 import { previewStyles } from "../../../_lib/preview-styles";
@@ -24,15 +29,36 @@ export default function ProjectHeroPreview({
   onSelectGalleryImage,
   onSelectDemo,
 }: ProjectHeroPreviewProps) {
-  const [expandedImage, setExpandedImage] = useState<{
-    src: string;
-    alt: string;
-    title: string;
-  } | null>(null);
+  const [expandedImageIndex, setExpandedImageIndex] = useState<number | null>(
+    null,
+  );
   const [loadedImageSources, setLoadedImageSources] = useState<Set<string>>(
     () => new Set(),
   );
   const previewStyle = previewStyles[project.accent];
+  const previewImages = useMemo(
+    () => [
+      ...(hasCoverImage
+        ? [
+            {
+              src: project.image.src,
+              alt: project.image.alt,
+              title: "Preview",
+            },
+          ]
+        : []),
+      ...(project.galleryImages ?? []),
+    ],
+    [
+      hasCoverImage,
+      project.galleryImages,
+      project.image.alt,
+      project.image.src,
+    ],
+  );
+  const expandedImage =
+    expandedImageIndex === null ? undefined : previewImages[expandedImageIndex];
+  const hasExpandableImages = previewImages.length > 1;
   const activeDemo = activeDemoIndex === null ? undefined : project.demoVideos?.[activeDemoIndex];
   const activeGalleryImage =
     activeGalleryIndex === null ? undefined : project.galleryImages?.[activeGalleryIndex];
@@ -83,10 +109,63 @@ export default function ProjectHeroPreview({
     </div>
   ) : null;
 
+  function markImageAsLoaded(src: string) {
+    setLoadedImageSources((currentSources) => {
+      if (currentSources.has(src)) {
+        return currentSources;
+      }
+
+      const nextSources = new Set(currentSources);
+      nextSources.add(src);
+      return nextSources;
+    });
+  }
+
+  const showPreviousExpandedImage = useCallback(() => {
+    setExpandedImageIndex((currentIndex) => {
+      if (currentIndex === null) {
+        return currentIndex;
+      }
+
+      return (currentIndex - 1 + previewImages.length) % previewImages.length;
+    });
+  }, [previewImages.length]);
+
+  const showNextExpandedImage = useCallback(() => {
+    setExpandedImageIndex((currentIndex) => {
+      if (currentIndex === null) {
+        return currentIndex;
+      }
+
+      return (currentIndex + 1) % previewImages.length;
+    });
+  }, [previewImages.length]);
+
+  function openExpandedImage(src: string) {
+    const imageIndex = previewImages.findIndex(
+      (previewImage) => previewImage.src === src,
+    );
+
+    setExpandedImageIndex(imageIndex === -1 ? null : imageIndex);
+  }
+
   useEffect(() => {
-    function closeOnEscape(event: KeyboardEvent) {
+    function handleExpandedImageKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
-        setExpandedImage(null);
+        setExpandedImageIndex(null);
+        return;
+      }
+
+      if (!hasExpandableImages) {
+        return;
+      }
+
+      if (event.key === "ArrowLeft") {
+        showPreviousExpandedImage();
+      }
+
+      if (event.key === "ArrowRight") {
+        showNextExpandedImage();
       }
     }
 
@@ -95,13 +174,19 @@ export default function ProjectHeroPreview({
     }
 
     document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", closeOnEscape);
+    window.addEventListener("keydown", handleExpandedImageKeyDown);
 
     return () => {
       document.body.style.overflow = "";
-      window.removeEventListener("keydown", closeOnEscape);
+      window.removeEventListener("keydown", handleExpandedImageKeyDown);
     };
-  }, [expandedImage]);
+  }, [
+    expandedImage,
+    hasExpandableImages,
+    previewImages.length,
+    showNextExpandedImage,
+    showPreviousExpandedImage,
+  ]);
 
   const expandedImageDialog = expandedImage ? (
     <div
@@ -114,7 +199,7 @@ export default function ProjectHeroPreview({
         type="button"
         aria-label="Close enlarged preview"
         className="absolute inset-0 cursor-zoom-out"
-        onClick={() => setExpandedImage(null)}
+        onClick={() => setExpandedImageIndex(null)}
       />
       <div className="relative z-10 flex max-h-[92vh] w-full max-w-7xl flex-col">
         <div className="mb-3 flex items-center justify-between gap-4">
@@ -126,12 +211,12 @@ export default function ProjectHeroPreview({
             aria-label="Close enlarged preview"
             title="Close preview"
             className="grid size-10 shrink-0 place-items-center rounded-md border border-white/10 bg-white/8 text-zinc-100 transition-colors hover:border-red-200/40 hover:text-red-100"
-            onClick={() => setExpandedImage(null)}
+            onClick={() => setExpandedImageIndex(null)}
           >
             <FaXmark className="h-4 w-4" aria-hidden="true" />
           </button>
         </div>
-        <div className="relative min-h-0 flex-1 overflow-hidden rounded-md border border-white/10 bg-slate-950 shadow-2xl shadow-black/50">
+        <div className="group relative min-h-0 flex-1 overflow-hidden rounded-md border border-white/10 bg-slate-950 shadow-2xl shadow-black/50">
           <Image
             src={expandedImage.src}
             alt={expandedImage.alt}
@@ -139,7 +224,47 @@ export default function ProjectHeroPreview({
             height={1080}
             sizes="100vw"
             className="max-h-[84vh] w-full object-contain"
+            onLoad={() => markImageAsLoaded(expandedImage.src)}
           />
+          {!loadedImageSources.has(expandedImage.src) ? (
+            <span className="absolute inset-0 grid place-items-center bg-slate-950/70 text-xs font-semibold text-zinc-200 backdrop-blur-sm">
+              <span className="inline-flex items-center gap-3 rounded-md border border-white/10 bg-slate-950/80 px-4 py-2 shadow-md shadow-black/20">
+                <span
+                  className="size-4 animate-spin rounded-full border-2 border-white/20 border-t-red-200"
+                  aria-hidden="true"
+                />
+                Loading preview
+              </span>
+            </span>
+          ) : null}
+          {hasExpandableImages ? (
+            <>
+              <button
+                type="button"
+                aria-label="Show previous preview image"
+                title="Previous image"
+                className="absolute left-3 top-1/2 grid size-11 -translate-y-1/2 place-items-center rounded-md border border-white/10 bg-slate-950/80 text-zinc-100 opacity-0 shadow-md shadow-black/30 transition-all hover:border-red-200/40 hover:text-red-100 focus-visible:opacity-100 group-hover:opacity-100"
+                onClick={(event) => {
+                  showPreviousExpandedImage();
+                  event.currentTarget.blur();
+                }}
+              >
+                <FaChevronLeft className="h-4 w-4" aria-hidden="true" />
+              </button>
+              <button
+                type="button"
+                aria-label="Show next preview image"
+                title="Next image"
+                className="absolute right-3 top-1/2 grid size-11 -translate-y-1/2 place-items-center rounded-md border border-white/10 bg-slate-950/80 text-zinc-100 opacity-0 shadow-md shadow-black/30 transition-all hover:border-red-200/40 hover:text-red-100 focus-visible:opacity-100 group-hover:opacity-100"
+                onClick={(event) => {
+                  showNextExpandedImage();
+                  event.currentTarget.blur();
+                }}
+              >
+                <FaChevronRight className="h-4 w-4" aria-hidden="true" />
+              </button>
+            </>
+          ) : null}
         </div>
       </div>
     </div>
@@ -163,7 +288,7 @@ export default function ProjectHeroPreview({
           aria-label={`Open ${title} enlarged preview`}
           title="Open larger preview"
           className="group relative aspect-video w-full cursor-zoom-in overflow-hidden rounded-md border border-white/10 bg-slate-950 shadow-md shadow-black/20"
-          onClick={() => setExpandedImage({ src, alt, title })}
+          onClick={() => openExpandedImage(src)}
         >
           <Image
             src={src}
@@ -172,17 +297,7 @@ export default function ProjectHeroPreview({
             priority
             sizes="(max-width: 768px) 100vw, 768px"
             className="object-contain"
-            onLoad={() => {
-              setLoadedImageSources((currentSources) => {
-                if (currentSources.has(src)) {
-                  return currentSources;
-                }
-
-                const nextSources = new Set(currentSources);
-                nextSources.add(src);
-                return nextSources;
-              });
-            }}
+            onLoad={() => markImageAsLoaded(src)}
           />
           {isImageLoading ? (
             <span className="absolute inset-0 grid place-items-center bg-slate-950/70 text-xs font-semibold text-zinc-200 backdrop-blur-sm">
