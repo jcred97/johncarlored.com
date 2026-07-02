@@ -13,7 +13,7 @@ export default function FeaturedProjects() {
   return (
     <section
       id="projects"
-      className="scroll-mt-24 border-t border-white/10 px-6 py-24 sm:px-8"
+      className="scroll-mt-24 border-t border-white/10 px-6 py-16 sm:px-8 sm:py-18 lg:py-20"
     >
       <div className="mx-auto w-full max-w-6xl">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
