@@ -29,6 +29,9 @@ export default function ProjectHeroPreview({
     alt: string;
     title: string;
   } | null>(null);
+  const [loadedImageSources, setLoadedImageSources] = useState<Set<string>>(
+    () => new Set(),
+  );
   const previewStyle = previewStyles[project.accent];
   const activeDemo = activeDemoIndex === null ? undefined : project.demoVideos?.[activeDemoIndex];
   const activeGalleryImage =
@@ -151,6 +154,8 @@ export default function ProjectHeroPreview({
     alt: string;
     title: string;
   }) {
+    const isImageLoading = !loadedImageSources.has(src);
+
     return (
       <>
         <button
@@ -167,7 +172,29 @@ export default function ProjectHeroPreview({
             priority
             sizes="(max-width: 768px) 100vw, 768px"
             className="object-contain"
+            onLoad={() => {
+              setLoadedImageSources((currentSources) => {
+                if (currentSources.has(src)) {
+                  return currentSources;
+                }
+
+                const nextSources = new Set(currentSources);
+                nextSources.add(src);
+                return nextSources;
+              });
+            }}
           />
+          {isImageLoading ? (
+            <span className="absolute inset-0 grid place-items-center bg-slate-950/70 text-xs font-semibold text-zinc-200 backdrop-blur-sm">
+              <span className="inline-flex items-center gap-3 rounded-md border border-white/10 bg-slate-950/80 px-4 py-2 shadow-md shadow-black/20">
+                <span
+                  className="size-4 animate-spin rounded-full border-2 border-white/20 border-t-red-200"
+                  aria-hidden="true"
+                />
+                Loading preview
+              </span>
+            </span>
+          ) : null}
           <span className="absolute right-3 top-3 grid size-9 place-items-center rounded-md border border-white/10 bg-slate-950/80 text-zinc-100 opacity-0 shadow-md shadow-black/20 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
             <FaExpand className="h-3.5 w-3.5" aria-hidden="true" />
           </span>
