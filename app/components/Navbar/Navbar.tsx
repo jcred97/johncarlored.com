@@ -56,7 +56,7 @@ export default function Navbar() {
             <Link
               href="/"
               aria-current={isHomeActive ? "page" : undefined}
-              className={`font-semibold transition-colors ${
+              className={`font-mono text-xs font-semibold uppercase transition-colors ${
                 isHomeActive
                   ? "text-red-300"
                   : "text-zinc-100 hover:text-red-300"
@@ -87,7 +87,7 @@ export default function Navbar() {
                     key={item.href}
                     href={item.href}
                     aria-current={isActive ? "page" : undefined}
-                    className={`transition-colors ${
+                    className={`font-mono text-xs transition-colors ${
                       isActive
                         ? "text-red-300"
                         : "text-zinc-300 hover:text-red-300"
@@ -125,7 +125,7 @@ export default function Navbar() {
             }`}
           >
             <div className="flex items-center justify-between border-b border-white/10 px-5 py-5">
-              <p className="font-display text-sm font-semibold tracking-normal text-zinc-100">
+              <p className="font-mono text-xs font-semibold uppercase text-zinc-100">
                 Navigation
               </p>
               <button
@@ -148,7 +148,7 @@ export default function Navbar() {
                     key={item.href}
                     href={item.href}
                     aria-current={isActive ? "page" : undefined}
-                    className={`rounded-md px-3 py-3 text-base font-semibold transition-colors ${
+                    className={`rounded-md px-3 py-3 font-mono text-sm font-semibold transition-colors ${
                       isActive
                         ? "bg-red-300/10 text-red-200"
                         : "text-zinc-300 hover:bg-white/[0.05] hover:text-red-300"

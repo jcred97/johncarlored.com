@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Sora } from "next/font/google";
+import {
+  IBM_Plex_Mono,
+  IBM_Plex_Sans_Condensed,
+  Inter,
+} from "next/font/google";
 import { ViewTransition } from "react";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -13,9 +17,16 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const sora = Sora({
-  variable: "--font-sora",
+const plexSansCondensed = IBM_Plex_Sans_Condensed({
+  variable: "--font-plex-sans-condensed",
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
+
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -84,7 +95,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${sora.variable} h-full antialiased`}
+      className={`${inter.variable} ${plexSansCondensed.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Navbar />

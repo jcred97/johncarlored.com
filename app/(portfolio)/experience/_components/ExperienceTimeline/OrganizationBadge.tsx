@@ -28,7 +28,7 @@ export default function OrganizationBadge({
           />
         </div>
       ) : (
-        <span className="text-[0.65rem] font-bold tracking-[0.18em] text-zinc-100">
+        <span className="font-mono text-[0.65rem] font-bold text-zinc-100">
           {label}
         </span>
       )}

@@ -12,9 +12,9 @@ export default function CertificationCard({
   return (
     <article className="flex h-full flex-col rounded-md border border-white/10 bg-slate-950/70 p-5 lg:p-6">
       <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-red-300">
-            {certification.issuer}
-          </p>
+        <p className="font-mono text-xs font-semibold uppercase text-red-300">
+          {certification.issuer}
+        </p>
         <h2 className="mt-3 text-xl font-semibold tracking-normal text-foreground lg:text-2xl">
           {certification.title}
         </h2>
