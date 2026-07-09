@@ -1,8 +1,5 @@
 export const hero = {
-  heading: {
-    intro: "Hey! I'm",
-    name: "John Carlo Red",
-  },
+  heading: "John Carlo Red",
   role: "Salesforce Developer",
   location: {
     city: "Antipolo",

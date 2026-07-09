@@ -10,8 +10,7 @@ export default function Hero() {
     <section className="mx-auto grid w-full max-w-6xl gap-x-8 gap-y-10 px-6 py-12 sm:px-8 sm:py-14 lg:min-h-[560px] lg:grid-cols-[minmax(0,1.08fr)_minmax(300px,340px)] lg:items-center lg:py-16">
       <div className="order-2 max-w-3xl lg:order-1">
         <h1 className="max-w-3xl text-[2.35rem] font-semibold leading-[1.04] tracking-normal text-foreground sm:text-[2.7rem] lg:text-[2.95rem] xl:text-[3.2rem]">
-          {hero.heading.intro}{" "}
-          <span className="text-red-300">{hero.heading.name}</span>
+          <span className="text-red-300">{hero.heading}</span>
         </h1>
 
         <h2 className="mt-3 max-w-2xl text-xl font-medium tracking-normal text-zinc-300 sm:text-2xl">
