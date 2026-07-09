@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import {
-  IBM_Plex_Mono,
+  Geist_Mono,
   IBM_Plex_Sans_Condensed,
   Inter,
 } from "next/font/google";
@@ -23,10 +23,9 @@ const plexSansCondensed = IBM_Plex_Sans_Condensed({
   weight: ["500", "600", "700"],
 });
 
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -95,7 +94,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${plexSansCondensed.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${plexSansCondensed.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Navbar />
