@@ -28,7 +28,7 @@ const containerStyles = {
 
 const linkStyles = {
   labelled:
-    "inline-flex h-10 items-center justify-center gap-2 rounded-md border border-white/10 px-4 font-mono text-xs font-medium text-zinc-300 transition-colors hover:border-red-300/50 hover:text-red-300",
+    "inline-flex h-10 items-center justify-center gap-2 rounded-md border border-white/10 px-4 font-mono text-[0.7rem] font-normal text-zinc-300 transition-colors hover:border-red-300/50 hover:text-red-300",
   iconOnly:
     "grid size-10 place-items-center rounded-full border border-white/10 bg-white/[0.045] text-zinc-300 transition hover:border-red-200/35 hover:text-red-200",
   footer: "text-zinc-400 transition-colors hover:text-red-300",

@@ -267,11 +267,12 @@ const projectItems: Project[] = [
     description:
       "A Salesforce LWC expense tracking app with dashboards, filtering, charts, datatable workflows, and CSV or PDF export support.",
     summary:
-      "Spendly is a Salesforce app for tracking personal spending across spendings, categories, and expense records. It combines a dashboard-style Lightning experience with charts, summaries, filters, datatable actions, and export-friendly reporting.",
+      "Spendly is a Salesforce Lightning app for managing personal expenses through a structured finance data model, dashboard-style summaries, reactive filters, charts, datatable actions, modal workflows, and export-friendly reporting.",
     overview: {
       intro: [
-        "Spendly is a Salesforce Lightning Web Components app for managing personal expenses through a simple data model: Spending__c to Category__c to Expense__c.",
-        "The app combines a dashboard-style UI with reactive filters, summary cards, charts, a datatable, and an accessible modal workflow for creating and editing expenses.",
+        "Problem: Personal expense tracking can become hard to review when spending records, categories, trends, and report exports live in disconnected spreadsheets or manual notes.",
+        "Solution: Built a Salesforce Lightning Web Components app that centralizes spendings, categories, and expenses into a dashboard-style workspace with reactive filters, summary cards, charts, datatable actions, and accessible modal flows.",
+        "Impact: Made expense review and maintenance faster by letting users filter financial records, understand spending patterns, create or update expenses, and export reports from one Salesforce app experience.",
       ],
       featureHeading: "Key features",
       features: [
@@ -317,7 +318,7 @@ const projectItems: Project[] = [
         },
       ],
       closing: [
-        "From an implementation standpoint, Spendly includes Apex controller logic, Lightning Web Components for the dashboard and modal flows, custom objects for the finance data model, and deployment support for replacing older TrackSpend metadata with the renamed Spendly app.",
+        "I built the LWC dashboard, Apex-backed expense loading, filter logic, chart data aggregation, datatable actions, modal flows, custom finance objects, CSV export support, print-friendly reporting, and deployment cleanup that moved the app from the older TrackSpend metadata into the renamed Spendly experience.",
       ],
     },
     demoVideos: [

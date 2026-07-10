@@ -16,12 +16,12 @@ export default function Hero() {
         <h2 className="mt-3 max-w-2xl text-xl font-medium tracking-normal text-zinc-300 sm:text-2xl">
           {hero.role}
         </h2>
-        <p className="mt-3 flex flex-wrap items-center gap-2 font-mono text-xs font-medium text-zinc-400 sm:text-sm">
+        <p className="mt-3 flex flex-wrap items-center gap-2 font-mono text-xs font-normal text-zinc-400 sm:text-sm">
           <FaLocationDot className="h-4 w-4 text-red-300/80" aria-hidden="true" />
           <span>
             {hero.location.city}, {hero.location.country}
           </span>
-          <span className="font-semibold uppercase text-zinc-500">
+          <span className="font-normal uppercase text-zinc-500">
             {hero.location.countryCode}
           </span>
         </p>

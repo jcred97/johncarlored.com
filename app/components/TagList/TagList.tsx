@@ -14,7 +14,7 @@ export default function TagList({ tags, variant = "card" }: TagListProps) {
       {tags.map((tag) => (
         <span
           key={tag}
-          className={`rounded-md px-2.5 py-1 font-mono text-xs font-semibold text-zinc-200 ${tagStyles[variant]}`}
+          className={`rounded-md px-2.5 py-1 font-mono text-xs font-normal text-zinc-200 ${tagStyles[variant]}`}
         >
           {tag}
         </span>
