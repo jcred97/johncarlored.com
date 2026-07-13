@@ -352,6 +352,16 @@ const projectItems: Project[] = [
         src: "/images/projects/salesforce-spendly/settings.png",
         alt: "Spendly settings view for recurring automation and app configuration",
       },
+      {
+        title: "Print Report",
+        src: "/images/projects/salesforce-spendly/print-or-pdf.png",
+        alt: "Spendly print-friendly expense report preview with filtered expense details",
+      },
+      {
+        title: "CSV Export",
+        src: "/images/projects/salesforce-spendly/csv.png",
+        alt: "Spendly CSV export output for filtered expense records",
+      },
     ],
     status: "Completed",
     timeline: "April 2, 2026 - June 15, 2026",
