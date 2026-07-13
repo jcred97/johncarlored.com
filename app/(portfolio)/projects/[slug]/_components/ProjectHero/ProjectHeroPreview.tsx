@@ -43,7 +43,7 @@ export default function ProjectHeroPreview({
             {
               src: project.image.src,
               alt: project.image.alt,
-              title: "Preview",
+              title: "Cover",
             },
           ]
         : []),
@@ -76,7 +76,7 @@ export default function ProjectHeroPreview({
             : "border border-white/12 bg-white/4 text-zinc-100 hover:border-red-200/40 hover:text-red-100"
         }`}
       >
-        Preview
+        Cover
       </button>
       {project.galleryImages?.map((galleryImage, index) => (
         <button
@@ -355,7 +355,7 @@ export default function ProjectHeroPreview({
         {imagePreviewButton({
           src: project.image.src,
           alt: project.image.alt,
-          title: "Preview",
+          title: "Cover",
         })}
         {mediaControls}
       </div>

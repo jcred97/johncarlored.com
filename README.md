@@ -118,6 +118,6 @@ npm run lint
 - Project detail pages use `generateStaticParams` and route-specific metadata.
 - Project detail previews support an optional screenshot gallery through each project's `galleryImages` data, and image previews can be opened in a larger focused view with previous/next browsing.
 - Open Graph and Twitter metadata are generated through shared helpers, with custom generated preview images for the home page, projects, project details, and certifications. Project detail previews include status and top technology tags from the shared project data.
-- Public assets are stored in `public/` and referenced by path from the app.
+- Public assets are stored in `public/` and referenced by path from the app, including project cover images and gallery screenshots under `public/images/projects/`. Project image folders should match their project slugs.
 - Certification PDFs live in `public/certifications/` and open in a new tab from each certification card.
 - The resume button opens the PDF in a new tab from `public/John-Carlo-Red-resume.pdf`.

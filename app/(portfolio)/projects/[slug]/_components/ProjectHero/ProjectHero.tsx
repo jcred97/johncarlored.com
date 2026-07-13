@@ -56,12 +56,14 @@ export default function ProjectHero({
           {project.title}
         </h1>
 
-        <div className="mt-8 flex flex-wrap items-center gap-6 text-sm text-zinc-400">
-          <span className="inline-flex items-center gap-2">
-            <FaRegCalendarAlt className="h-4 w-4" aria-hidden="true" />
-            {project.timeline}
-          </span>
-        </div>
+        {project.timeline ? (
+          <div className="mt-8 flex flex-wrap items-center gap-6 text-sm text-zinc-400">
+            <span className="inline-flex items-center gap-2">
+              <FaRegCalendarAlt className="h-4 w-4" aria-hidden="true" />
+              {project.timeline}
+            </span>
+          </div>
+        ) : null}
 
         <ProjectHeroActions
           project={project}

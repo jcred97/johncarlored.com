@@ -25,7 +25,7 @@ export type Project = {
     alt: string;
   }[];
   status: string;
-  timeline: string;
+  timeline?: string;
   githubUrl?: string;
   tags: string[];
   role: string;
@@ -42,7 +42,7 @@ export type Project = {
 const projectItems: Project[] = [
   {
     slug: "salesforce-portfolio-website",
-    title: "Salesforce Portfolio Website",
+    title: "Salesforce - Portfolio Website",
     owner: "experience-cloud",
     accent: "portfolio",
     description:
@@ -140,7 +140,7 @@ const projectItems: Project[] = [
       },
     ],
     image: {
-      src: "/images/projects/sf-workfolio/cover.png",
+      src: "/images/projects/salesforce-portfolio-website/cover.png",
       alt: "Salesforce Portfolio Website preview",
     },
   },
@@ -224,7 +224,6 @@ const projectItems: Project[] = [
       ],
     },
     status: "Completed",
-    timeline: "June 1, 2026 - June 26, 2026",
     galleryImages: [
       {
         title: "Active Dialing",
@@ -260,89 +259,117 @@ const projectItems: Project[] = [
   },
   {
     slug: "salesforce-spendly",
-    title: "Salesforce - Spendly",
+    title: "Salesforce - Spendly Expense Management App",
     owner: "finance-dashboard",
     accent: "app",
     featured: true,
     description:
-      "A Salesforce LWC expense tracking app with dashboards, filtering, charts, datatable workflows, and CSV or PDF export support.",
+      "A personal Salesforce expense workspace with dashboards, recurring automation, filters, charts, exports, and print-friendly reporting.",
     summary:
-      "Spendly is a Salesforce Lightning app for managing personal expenses through a structured finance data model, dashboard-style summaries, reactive filters, charts, datatable actions, modal workflows, and export-friendly reporting.",
+      "Spendly is a personal Salesforce Lightning app for managing expenses through a structured finance data model, dashboard summaries, reactive filters, chart-driven insights, recurring expense automation, settings controls, modal workflows, and export-friendly reporting.",
     overview: {
       intro: [
-        "Problem: Personal expense tracking can become hard to review when spending records, categories, trends, and report exports live in disconnected spreadsheets or manual notes.",
-        "Solution: Built a Salesforce Lightning Web Components app that centralizes spendings, categories, and expenses into a dashboard-style workspace with reactive filters, summary cards, charts, datatable actions, and accessible modal flows.",
-        "Impact: Made expense review and maintenance faster by letting users filter financial records, understand spending patterns, create or update expenses, and export reports from one Salesforce app experience.",
+        "Problem: Personal expense tracking was scattered across manual records, categories, recurring payments, date filters, summaries, and exports, making it harder to review spending patterns or keep recurring expenses up to date from one Salesforce workspace.",
+        "Solution: Built a custom Lightning Web Components expense workspace that centralizes expense groups, categories, filtered expense records, dashboard summaries, charts, recurring expense automation, settings, exports, and print-friendly reporting in one Salesforce app.",
+        "Impact: Created a structured personal finance workspace for reviewing spending by group, category, bank, transaction type, and date range, while supporting faster expense entry, editing, duplication, deletion, recurring generation, and reporting without leaving Salesforce.",
       ],
       featureHeading: "Key features",
       features: [
         {
-          title: "Expense management workflow",
+          title: "Expense hierarchy",
           description:
-            "Create, edit, duplicate, delete, and bulk delete expenses from a single Lightning app experience.",
-        },
-        {
-          title: "Reactive filtering and search",
-          description:
-            "Filter by spending, category, and date range while searching across expense name, category, bank, and transaction type.",
+            "Organized spending with Expense Group -> Category -> Expense records.",
         },
         {
           title: "Dashboard summaries",
           description:
-            "Surface total spent, average expense, top category, and top bank from the currently filtered dataset.",
+            "Displayed total spent, average expense, top category, top bank, recent activity, and filtered insights.",
         },
         {
-          title: "Chart-driven insights",
+          title: "Reactive filters",
           description:
-            "Visualize category totals, bank breakdowns, and monthly spending trends directly in the app.",
+            "Helped narrow expenses by expense group, category, date range, and search text.",
         },
         {
-          title: "Datatable usability",
+          title: "Visual breakdowns",
           description:
-            "Support sorting, infinite loading, column visibility controls, and row-level actions for faster review workflows.",
+            "Showed category, bank, and monthly trend charts for easier spending review.",
         },
         {
-          title: "Export and print support",
+          title: "Expense workspace",
           description:
-            "Generate CSV exports and open a print or PDF-friendly report view from the interface.",
+            "Supported add, edit, duplicate, delete, bulk delete, sorting, infinite loading, and column visibility controls.",
         },
         {
-          title: "Accessible modal patterns",
+          title: "Recurring expenses",
           description:
-            "Use focus trapping, Escape-to-close, scroll locking, and focus restoration for cleaner keyboard interaction.",
+            "Added recurring template handling with daily scheduled processing and manual run support.",
         },
         {
-          title: "Apex-backed data flows",
+          title: "Settings controls",
           description:
-            "Load filtered expenses, category options, monthly trend aggregates, and delete actions through a dedicated controller.",
+            "Provided recurring automation settings, last-run status, and enable or disable controls.",
+        },
+        {
+          title: "Export and print reporting",
+          description:
+            "Generated CSV exports and print or PDF-friendly filtered expense reports.",
+        },
+        {
+          title: "Salesforce permissions",
+          description:
+            "Included app metadata, custom tabs, flexipages, and permission sets for user and admin access.",
+        },
+        {
+          title: "Accessible modal workflow",
+          description:
+            "Used a focused add/edit modal with keyboard-friendly close behavior and focus restoration.",
         },
       ],
       closing: [
-        "I built the LWC dashboard, Apex-backed expense loading, filter logic, chart data aggregation, datatable actions, modal flows, custom finance objects, CSV export support, print-friendly reporting, and deployment cleanup that moved the app from the older TrackSpend metadata into the renamed Spendly experience.",
+        "I built the LWC workspace, Apex-backed data loading, scoped filters, dashboard aggregation, chart components, custom expense list, modal workflows, recurring expense services, scheduled and batch processing, settings controls, export, print, and Salesforce metadata that power the Spendly app.",
+        "Privacy note: Because the app can contain personal financial records, portfolio screenshots use recreated sample data while preserving the interface structure and workflow.",
       ],
     },
-    demoVideos: [
+    galleryImages: [
       {
-        title: "Spendly Demo",
-        embedUrl: "https://www.youtube.com/embed/SC94P9kjwPM",
+        title: "Expenses",
+        src: "/images/projects/salesforce-spendly/expenses-view.png",
+        alt: "Spendly expenses view with filters, summaries, charts, and expense records",
+      },
+      {
+        title: "Add Expense Modal",
+        src: "/images/projects/salesforce-spendly/add-expense-modal.png",
+        alt: "Spendly add expense modal with expense details and categorized entry fields",
+      },
+      {
+        title: "Recurring Expense",
+        src: "/images/projects/salesforce-spendly/recurring-view.png",
+        alt: "Spendly recurring expenses view with template and automation controls",
+      },
+      {
+        title: "Settings",
+        src: "/images/projects/salesforce-spendly/settings.png",
+        alt: "Spendly settings view for recurring automation and app configuration",
       },
     ],
     status: "Completed",
-    timeline: "February 14, 2026 - April 8, 2026",
-    githubUrl: "https://github.com/jcred97/sf-spendly",
+    timeline: "April 2, 2026 - June 15, 2026",
     tags: [
       "Salesforce",
       "Lightning Web Components",
       "Apex",
-      "Dashboard",
-      "Data Table",
-      "Charts",
+      "SOQL",
+      "Personal Project",
+      "Expense Tracking",
+      "Automation",
+      "Data Visualization",
     ],
     role: "Salesforce Developer",
     links: [],
     image: {
-      src: "/images/projects/sf-spendly/cover-v2.png",
-      alt: "Spendly expense tracking app preview",
+      src: "/images/projects/salesforce-spendly/cover.png",
+      alt: "Salesforce Spendly expense management app cover",
     },
   },
 ];
