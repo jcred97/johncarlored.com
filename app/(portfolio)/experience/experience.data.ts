@@ -32,11 +32,11 @@ export const experience = {
           roles: [
             {
               title: "Salesforce Implementation Specialist",
-              period: "Nov 2024 - Present",
+              period: "Nov 2024 - Jul 2026",
               bullets: [
-                "Implemented and customized the company's Salesforce managed package across multiple client orgs using Lightning Web Components, Apex classes, and Flow automations aligned to business requirements.",
-                "Developed feature upgrades that improved package scalability and REST API integration capabilities for external payment systems and faster customer onboarding.",
-                "Led development of the Salesforce Agentforce managed package to replace manual customer processes with automation and improve onboarding and product adoption.",
+                "Implemented and customized a Salesforce managed package across multiple client orgs, developing Lightning Web Components, Apex, and Flow automations to deliver scalable, maintainable solutions tailored to each customer's business requirements.",
+                "Developed feature enhancements that improved the scalability and REST API capabilities of the managed package, enabling seamless integrations with payment providers such as Elavon and NMI while streamlining customer onboarding.",
+                "Led development of the Salesforce Agentforce managed package, building AI-powered agents for invoice reminders, secure payment links, and in-app user guidance, improving customer self-service and reducing support workload.",
               ],
             },
           ],
@@ -50,8 +50,9 @@ export const experience = {
               title: "Salesforce Developer",
               period: "Jul 2024 - Nov 2024",
               bullets: [
-                "Led migration of legacy Visualforce and Apex solutions to Lightning Web Components to improve UI responsiveness, component reuse, and long-term maintainability.",
-                "Re-architected Process Builder automations into record-triggered Flows to reduce technical debt and improve performance, governance compliance, and enhancement speed.",
+                "Led migration of legacy Visualforce pages to Lightning Web Components, refactoring supporting Apex controllers where needed to improve maintainability and UI responsiveness.",
+                "Re-architected legacy Process Builder automations into record-triggered Flows, reducing technical debt while improving performance, maintainability, and Salesforce governance compliance.",
+                "Performed code reviews for Apex and Lightning Web Components and supported Salesforce deployments, ensuring code quality and reliable application releases.",
               ],
             },
           ],
@@ -65,8 +66,9 @@ export const experience = {
               title: "Salesforce Developer",
               period: "Oct 2023 - Jun 2024",
               bullets: [
-                "Migrated legacy Salesforce Classic and Visualforce functionality to Lightning Experience to improve maintainability and overall user experience.",
-                "Developed Lightning Web Components integrated into an Experience Cloud client portal to improve UI responsiveness and long-term system maintainability.",
+                "Migrated legacy Salesforce Classic and Visualforce functionality to Lightning Experience, improving maintainability and user experience.",
+                "Developed Lightning Web Components for the client's Experience Cloud portal, improving UI responsiveness and long-term maintainability.",
+                "Developed Apex solutions, resolved application defects, and supported Salesforce deployments, ensuring reliable application functionality and successful releases.",
               ],
             },
           ],
@@ -80,18 +82,17 @@ export const experience = {
               title: "Salesforce Developer",
               period: "Jun 2021 - Sep 2023",
               bullets: [
-                "Developed a chatbot using Einstein Bots and Lightning Web Components to manage customer inquiries, automate lead creation, and log conversation history.",
-                "Automated complex sales workflows using validation rules, Approval Processes, Flows, Apex, and Triggers to improve data consistency and reduce manual work.",
-                "Designed and built a custom application form using Aura Components and Apex to replace Screen Flows for better performance and more complex user interfaces.",
-                "Mentored three associate developers through code reviews, technical guidance, and Salesforce best practices.",
+                "Developed an Einstein Bot with Lightning Web Components to automate customer inquiries, lead creation, and conversation tracking, improving customer engagement and follow-up efficiency.",
+                "Automated sales workflows using Validation Rules, Approval Processes, Flows, Apex, and Triggers, improving data consistency and reducing manual effort.",
+                "Developed a custom application form using Aura Components and Apex, replacing Screen Flows to improve performance and support complex user interactions.",
               ],
             },
             {
               title: "Associate Salesforce Developer",
               period: "Feb 2020 - Jun 2021",
               bullets: [
-                "Designed and implemented Screen Flows as dynamic application interfaces so administrators could modify logic and fields without developer intervention.",
-                "Built Visualforce pages that generated structured CSV exports, reducing manual Excel work and improving reporting efficiency.",
+                "Designed and implemented Screen Flows for multiple application forms, enabling administrators to modify logic and fields without developer intervention while reducing technical debt and maintenance effort.",
+                "Developed Visualforce pages to generate and export structured data to CSV, eliminating manual Excel data entry and improving reporting efficiency.",
               ],
             },
           ],
@@ -111,8 +112,7 @@ export const experience = {
               title: "BS, Information Technology",
               period: "2014 - 2018",
               bullets: [
-                "Studied web development, object-oriented programming, software engineering, data structures and algorithms, Cisco, and Agile methodology.",
-                "Built the technical foundation that later supported my move into Salesforce development, application design, and automation work.",
+                "Coursework included web development, object-oriented programming, software engineering, data structures and algorithms, Cisco, and Agile methodology.",
               ],
             },
           ],
