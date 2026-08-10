@@ -32,9 +32,16 @@ export default function ExperienceTimeline({
             </div>
 
             <div className="pb-10 sm:pb-12">
-              <h3 className="text-2xl font-semibold tracking-normal text-zinc-50">
-                {entry.organization}
-              </h3>
+              <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+                <h3 className="text-2xl font-semibold tracking-normal text-zinc-50">
+                  {entry.organization}
+                </h3>
+                {entry.location ? (
+                  <p className="shrink-0 text-sm font-medium text-zinc-400">
+                    {entry.location}
+                  </p>
+                ) : null}
+              </div>
 
               <div className="mt-3 space-y-6">
                 {entry.roles.map((role) => (

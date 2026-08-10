@@ -145,6 +145,125 @@ const projectItems: Project[] = [
     },
   },
   {
+    slug: "salesforce-email-composer",
+    title: "Salesforce - Multi-Record Email Composer",
+    owner: "salesforce-email-composer",
+    accent: "crm",
+    featured: true,
+    description:
+      "A configurable Lightning email composer for personalizing, reviewing, attaching files to, sending, and logging emails across multiple recipient-record combinations.",
+    summary:
+      "Salesforce Multi-Record Email Composer is a configurable Lightning workflow for selecting multiple recipients and related records, applying Salesforce Email Templates, editing rich-text content, attaching Salesforce Files, and reviewing every personalized recipient-record combination before sending.",
+    overview: {
+      intro: [
+        "Problem: Creating personalized emails becomes repetitive when users need to contact several people about several related Salesforce records. Each recipient-record combination can produce different merge-field values, making it difficult to verify the final messages, manage attachments, and preserve CRM activity context before sending.",
+        "Solution: Built a configurable Lightning email composer that lets users select multiple recipients and related records, apply Salesforce Email Templates, edit rich-text content, attach Salesforce Files, and review every compiled message before sending.",
+        "Impact: Consolidated message composition, personalization, attachment selection, preview, delivery, and activity logging into one Lightning workflow. This reduces repetitive copying, helps users catch incorrect merge context before delivery, and preserves sent-email visibility on Contact records.",
+      ],
+      featureHeading: "Key features",
+      features: [
+        {
+          title: "Multi-record composition",
+          description:
+            "Selects multiple recipients and related Salesforce records using removable record pills.",
+        },
+        {
+          title: "Recipient-record pairing",
+          description:
+            "Generates a separately personalized email for every recipient and related-record combination.",
+        },
+        {
+          title: "Compiled message review",
+          description:
+            "Displays the resolved subject and body for each combination before anything is sent.",
+        },
+        {
+          title: "Dynamic merge fields",
+          description:
+            "Resolves Recipient, Sender, Organization, and related-record fields, including supported relationship paths such as account information.",
+        },
+        {
+          title: "Salesforce Email Templates",
+          description:
+            "Loads active templates and applies their subject and HTML or plain-text content inside the composer.",
+        },
+        {
+          title: "Rich-text authoring",
+          description:
+            "Allows users to revise the subject and formatted message after selecting a template.",
+        },
+        {
+          title: "Salesforce Files integration",
+          description:
+            "Supports searching existing files, browsing libraries, uploading new files, and attaching multiple files to the generated emails.",
+        },
+        {
+          title: "Contact activity history",
+          description:
+            "Records emails sent to Contacts in their Salesforce Activity timeline and associates them with the applicable related record.",
+        },
+        {
+          title: "Configurable Lightning component",
+          description:
+            "Lets administrators configure recipient objects, related objects, email fields, and HTML handling through Lightning App Builder.",
+        },
+        {
+          title: "Native Salesforce delivery",
+          description:
+            "Sends messages through Salesforce's standard email services without requiring an external email provider.",
+        },
+        {
+          title: "Security and validation",
+          description:
+            "Validates merge paths and record access, queries personalization data in user context, and places limits on excessive message combinations.",
+        },
+      ],
+      closing: [
+        "I built the Lightning Web Component interface, compiled-review experience, attachment picker, and Apex service layer responsible for template retrieval, secure merge-field resolution, recipient-record combination generation, Salesforce Files handling, send validation, native email delivery, and Contact activity logging.",
+        "Privacy note: The portfolio preview uses recreated Contacts, Opportunities, email templates, addresses, and files. No client records, customer information, or proprietary email content is shown.",
+      ],
+    },
+    galleryImages: [
+      {
+        title: "Compiled Review",
+        src: "/images/projects/salesforce-email-composer/cover.png",
+        alt: "Compiled email review showing four personalized recipient and related-record combinations",
+      },
+      {
+        title: "File Attachments",
+        src: "/images/projects/salesforce-email-composer/attachmen-picker.png",
+        alt: "Salesforce Files picker with search, upload, library navigation, and a selected attachment",
+      },
+      {
+        title: "Activity History",
+        src: "/images/projects/salesforce-email-composer/received-email.png",
+        alt: "Salesforce Contact Activity timeline showing sent emails associated with related opportunities",
+      },
+      {
+        title: "Email Template",
+        src: "/images/projects/salesforce-email-composer/template.png",
+        alt: "Salesforce Project Follow-Up email template with subject and merge-field content",
+      },
+    ],
+    status: "Completed",
+    tags: [
+      "Salesforce",
+      "Lightning Web Components",
+      "Apex",
+      "SOQL",
+      "Sales Cloud",
+      "Email Templates",
+      "Salesforce Files",
+      "CRM Workflow",
+    ],
+    role: "Salesforce Developer",
+    links: [],
+    image: {
+      src: "/images/projects/salesforce-email-composer/compose.png",
+      alt: "Salesforce Multi-Record Email Composer with recipients, related records, template, rich-text editor, and attachment action",
+    },
+  },
+  {
     slug: "salesforce-power-dialer-workspace",
     title: "Salesforce - Power Dialer Workspace",
     owner: "salesforce-dialer",
@@ -385,9 +504,10 @@ const projectItems: Project[] = [
 ];
 
 const projectDisplayOrder = new Map([
-  ["salesforce-power-dialer-workspace", 0],
-  ["salesforce-spendly", 1],
-  ["salesforce-portfolio-website", 2],
+  ["salesforce-email-composer", 0],
+  ["salesforce-power-dialer-workspace", 1],
+  ["salesforce-spendly", 2],
+  ["salesforce-portfolio-website", 3],
 ]);
 
 export const projects = [...projectItems].sort(

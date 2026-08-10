@@ -17,7 +17,7 @@ This portfolio presents John Carlo Red as a Salesforce Developer through a small
 - `Home`
   Highlights the hero section, current role, selected projects, and supporting portfolio sections.
 - `Projects`
-  Shows selected Salesforce project and client feature write-ups for `salesforce-power-dialer-workspace`, `salesforce-spendly`, and `salesforce-portfolio-website`.
+  Shows selected Salesforce project and client feature write-ups for `salesforce-email-composer`, `salesforce-power-dialer-workspace`, `salesforce-spendly`, and `salesforce-portfolio-website`.
 - `Experience`
   Renders a tabbed timeline for work history and education using shared structured data.
 - `Certifications`
@@ -75,7 +75,7 @@ Key content files:
 - `app/(portfolio)/projects/projects.data.ts`
   Project cards, first-two featured-project selection, slug-page content, optional demo videos, and optional screenshot galleries
 - `app/(portfolio)/experience/experience.data.ts`
-  Work and education timeline data
+  Work and education timeline data, including optional organization locations
 - `app/(portfolio)/skills/skills.data.ts`
   Skill group data for the unlinked skills page
 - `app/(portfolio)/certifications/certifications.data.ts`
@@ -120,5 +120,5 @@ npm run lint
 - Open Graph and Twitter metadata are generated through shared helpers, with custom generated preview images for the home page, projects, project details, and certifications. Project detail previews include status and top technology tags from the shared project data.
 - Public assets are stored in `public/` and referenced by path from the app, including project cover images and gallery screenshots under `public/images/projects/`. Project image folders should match their project slugs.
 - Certification PDFs live in `public/certifications/` and open in a new tab from each certification card.
-- The resume button opens the PDF in a new tab from `public/John-Carlo-Red-resume.pdf`.
+- The resume button opens the current ATS-friendly PDF in a new tab from `public/John-Carlo-Red-resume.pdf`.
 - Keep the work and education timeline in `app/(portfolio)/experience/experience.data.ts` aligned with the current resume PDF.
