@@ -121,4 +121,4 @@ npm run lint
 - Public assets are stored in `public/` and referenced by path from the app, including project cover images and gallery screenshots under `public/images/projects/`. Project image folders should match their project slugs.
 - Certification PDFs live in `public/certifications/` and open in a new tab from each certification card.
 - The resume button opens the current ATS-friendly PDF in a new tab from `public/John-Carlo-Red-resume.pdf`.
-- Keep the work and education timeline in `app/(portfolio)/experience/experience.data.ts` aligned with the current resume PDF.
+- Keep role titles, employment dates, and work experience bullets in `app/(portfolio)/experience/experience.data.ts` aligned with the current resume PDF. Preserve the resume wording when updating work experience and replace `public/John-Carlo-Red-resume.pdf` with the supplied PDF in the same change; education can retain supplemental portfolio details.
