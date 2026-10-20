@@ -27,17 +27,33 @@ export const experience = {
       label: "Work",
       items: [
         {
+          organization: "Ascendion",
+          placeholder: "AS",
+          roles: [
+            {
+              title: "Salesforce Technical Lead",
+              period: "Aug 2026 - Present",
+              bullets: [
+                "Built scheduled Batch Apex to recheck overdue reassignment eligibility, cancel ineligible requests, and process eligible requests.",
+                "Led production releases, reviewed code, and managed component dependencies to support reliable Salesforce deployments.",
+                "Designed an integration using External Client App OAuth, Apex REST APIs, and Named Credentials, with data validation and rules for creating, updating, and excluding records.",
+                "Implemented asynchronous processing with retries, persistent error logs, and job-status tracking to support integration monitoring and recovery.",
+              ],
+            },
+          ],
+        },
+        {
           organization: "Kulturra",
           placeholder: "KU",
           logo: "/images/experience/kulturra.png",
           roles: [
             {
-              title: "Salesforce Implementation Specialist",
+              title: "Senior Salesforce Developer",
               period: "Nov 2024 - Jul 2026",
               bullets: [
-                "Implemented and customized a Salesforce managed package across multiple client orgs using Apex, Lightning Web Components, and Flow automations to support client-specific business processes.",
-                "Expanded the managed package's feature set through new Lightning Web Components, Apex functionality, REST APIs, and payment workflows with Elavon and NMI integrations.",
-                "Led development of Agentforce-powered capabilities for invoice reminders, secure payment links, and contextual in-app guidance, expanding customer self-service and reducing routine support work.",
+                "Customized customer payment workflows using Apex, Lightning Web Components, and Salesforce Flow to support client-specific business processes.",
+                "Integrated payment processors using Apex and REST APIs to support customer payment workflows.",
+                "Led development of an Agentforce managed package for Payment Center, including Apex-backed setup, invoice assistance, reminders, and payment links.",
               ],
             },
           ],
@@ -51,9 +67,9 @@ export const experience = {
               title: "Salesforce Developer",
               period: "Jul 2024 - Nov 2024",
               bullets: [
-                "Led the migration of legacy Visualforce pages to Lightning Web Components and refactored supporting Apex controllers, improving interface responsiveness and maintainability.",
-                "Replaced legacy Process Builder automations with record-triggered Flows, reducing technical debt and aligning automation with current Salesforce platform standards.",
-                "Reviewed Apex and Lightning Web Components and supported Salesforce deployments, strengthening code quality and release readiness.",
+                "Built a power dialer using Lightning Web Components and Apex, with prioritized calling queues, customer context, and follow-up workflows.",
+                "Consolidated legacy Process Builder automations into record-triggered Flows to simplify maintenance and troubleshooting.",
+                "Reviewed and merged Apex and Lightning Web Components, resolved conflicts, and validated deployments to higher environments.",
               ],
             },
           ],
@@ -67,9 +83,9 @@ export const experience = {
               title: "Salesforce Developer",
               period: "Oct 2023 - Jun 2024",
               bullets: [
-                "Migrated Salesforce Classic and Visualforce functionality to Lightning Experience, improving usability and reducing reliance on legacy components.",
-                "Built Lightning Web Components for an Experience Cloud portal, improving interface responsiveness and long-term maintainability.",
-                "Developed Apex enhancements, resolved application defects, and supported Salesforce deployments, restoring affected functionality and supporting stable releases.",
+                "Migrated Visualforce pages and JavaScript buttons to Lightning Web Components and refactored supporting Apex to modernize legacy Salesforce functionality.",
+                "Built Lightning Web Components for an Experience Cloud portal, including a self-service case submission form.",
+                "Developed reusable, documented Apex methods to support maintainable Salesforce functionality.",
               ],
             },
           ],
@@ -83,9 +99,10 @@ export const experience = {
               title: "Salesforce Developer",
               period: "Jun 2021 - Sep 2023",
               bullets: [
-                "Built an Einstein Bot and supporting Lightning Web Components to automate inquiry handling, lead creation, and conversation tracking, enabling more consistent customer follow-up.",
-                "Automated sales workflows using Validation Rules, Approval Processes, Salesforce Flow, Apex, and Triggers, improving data consistency and reducing manual effort.",
-                "Built a custom application form using Aura Components and Apex to replace Screen Flows, improving performance and supporting complex user interactions.",
+                "Built an Einstein Bot and supporting Lightning Web Components to reduce manual inquiry handling and capture leads and conversation history.",
+                "Automated submission of sales records for manager approval when defined field criteria were met.",
+                "Built a vaccination management application form using Aura Components and Apex to replace Screen Flows.",
+                "Mentored three associate developers on Salesforce development practices.",
               ],
             },
             {

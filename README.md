@@ -75,7 +75,7 @@ Key content files:
 - `app/(portfolio)/projects/projects.data.ts`
   Project cards, first-two featured-project selection, slug-page content, optional demo videos, and optional screenshot galleries
 - `app/(portfolio)/experience/experience.data.ts`
-  Work and education timeline data, including optional organization locations
+  Work and education timeline data, including optional organization locations, the current Salesforce Technical Lead role at Ascendion, and prior roles at Kulturra, Quantrics Enterprises, Cloudstaff, and Accenture
 - `app/(portfolio)/skills/skills.data.ts`
   Skill group data for the unlinked skills page
 - `app/(portfolio)/certifications/certifications.data.ts`
