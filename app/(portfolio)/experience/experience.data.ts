@@ -29,6 +29,7 @@ export const experience = {
         {
           organization: "Ascendion",
           placeholder: "AS",
+          logo: "/images/experience/ascendion.png",
           roles: [
             {
               title: "Salesforce Technical Lead",
