@@ -119,7 +119,7 @@ npm run lint
 - Project detail previews support an optional screenshot gallery through each project's `galleryImages` data, and image previews can be opened in a larger focused view with previous/next browsing.
 - Open Graph and Twitter metadata are generated through shared helpers, with custom generated preview images for the home page, projects, project details, and certifications. Project detail previews include status and top technology tags from the shared project data.
 - Public assets are stored in `public/` and referenced by path from the app, including project cover images and gallery screenshots under `public/images/projects/`. Project image folders should match their project slugs.
-- Experience organization logos live in `public/images/experience/`, including the supplied Ascendion image at `ascendion.png`, and are referenced by the experience timeline data.
+- Experience organization logos live in `public/images/experience/`, including the supplied square Ascendion A icon at `ascendion.png`, and are referenced by the experience timeline data.
 - Certification PDFs live in `public/certifications/` and open in a new tab from each certification card.
 - The resume button opens the current ATS-friendly PDF in a new tab from `public/John-Carlo-Red-resume.pdf`.
 - Keep role titles, employment dates, and work experience bullets in `app/(portfolio)/experience/experience.data.ts` aligned with the current resume PDF. Preserve the resume wording when updating work experience and replace `public/John-Carlo-Red-resume.pdf` with the supplied PDF in the same change; education can retain supplemental portfolio details.
