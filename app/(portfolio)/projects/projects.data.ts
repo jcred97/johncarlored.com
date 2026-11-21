@@ -377,127 +377,101 @@ const projectItems: Project[] = [
     },
   },
   {
-    slug: "salesforce-spendly",
-    title: "Salesforce - Spendly Expense Management App",
+    slug: "salesforce-budget-expense-manager",
+    title: "Budget & Expense Manager for Salesforce",
     owner: "finance-dashboard",
     accent: "app",
     featured: true,
     description:
-      "A personal Salesforce expense workspace with dashboards, recurring automation, filters, charts, exports, and print-friendly reporting.",
+      "Track spending against monthly budgets, record foreign purchases at their historical exchange rates, and automate recurring expenses in Salesforce Lightning.",
     summary:
-      "Spendly is a personal Salesforce Lightning app for managing expenses through a structured finance data model, dashboard summaries, reactive filters, chart-driven insights, recurring expense automation, settings controls, modal workflows, and export-friendly reporting.",
+      "I built a Salesforce Lightning app that tracks expenses in Philippine pesos (PHP). Its dashboard shows how much each expense group has spent and how much of its monthly budget remains.",
     overview: {
       intro: [
-        "Problem: Personal expense tracking was scattered across manual records, categories, recurring payments, date filters, summaries, and exports, making it harder to review spending patterns or keep recurring expenses up to date from one Salesforce workspace.",
-        "Solution: Built a custom Lightning Web Components expense workspace that centralizes expense groups, categories, filtered expense records, dashboard summaries, charts, recurring expense automation, settings, exports, and print-friendly reporting in one Salesforce app.",
-        "Impact: Created a structured personal finance workspace for reviewing spending by group, category, bank, transaction type, and date range, while supporting faster expense entry, editing, duplication, deletion, recurring generation, and reporting without leaving Salesforce.",
+        "An expense list tells me what I bought. When planning the next purchase, I also want to know how much money is left for the month.",
+        "For example, a household with a ₱5,000 monthly budget records its first ₱250 grocery purchase under Food. The dashboard then shows ₱4,750 remaining for the household. Opening the expense list and filtering by Food reveals the purchase behind that total.",
       ],
-      featureHeading: "Key features",
+      featureHeading: "How the app works",
       features: [
         {
-          title: "Expense hierarchy",
+          title: "Monthly budgets by group",
           description:
-            "Organized spending with Expense Group -> Category -> Expense records.",
+            "Set an optional monthly target for each expense group. The dashboard compares spending with the target and breaks down purchases by category and bank.",
         },
         {
-          title: "Dashboard summaries",
+          title: "Historical exchange rates",
           description:
-            "Displayed total spent, average expense, top category, top bank, recent activity, and filtered insights.",
+            "A foreign purchase keeps its original amount and currency, the rate used, its effective date and source, and the resulting PHP amount. Later rate changes leave earlier reports consistent.",
         },
         {
-          title: "Reactive filters",
+          title: "Recurring bills across short months",
           description:
-            "Helped narrow expenses by expense group, category, date range, and search text.",
+            "A monthly bill due on January 31 falls on the last day of February and returns to March 31. Scheduled or manually queued Batch Apex generates due expenses and tracks the next date to process.",
         },
         {
-          title: "Visual breakdowns",
+          title: "Payment methods by bank",
           description:
-            "Showed category, bank, and monthly trend charts for easier spending review.",
+            "Each expense group can choose which payment methods a bank supports. The expense and recurring bill forms show those choices when the bank is selected.",
         },
         {
-          title: "Expense workspace",
+          title: "Expense review and reporting",
           description:
-            "Supported add, edit, duplicate, delete, bulk delete, sorting, infinite loading, and column visibility controls.",
-        },
-        {
-          title: "Recurring expenses",
-          description:
-            "Added recurring template handling with daily scheduled processing and manual run support.",
-        },
-        {
-          title: "Settings controls",
-          description:
-            "Provided recurring automation settings, last-run status, and enable or disable controls.",
-        },
-        {
-          title: "Export and print reporting",
-          description:
-            "Generated CSV exports and print or PDF-friendly filtered expense reports.",
-        },
-        {
-          title: "Salesforce permissions",
-          description:
-            "Included app metadata, custom tabs, flexipages, and permission sets for user and admin access.",
-        },
-        {
-          title: "Accessible modal workflow",
-          description:
-            "Used a focused add/edit modal with keyboard-friendly close behavior and focus restoration.",
+            "Add, edit, or duplicate a purchase, filter the ledger by group, category, or date, and export the matching rows to CSV or a print-friendly report.",
         },
       ],
       closing: [
-        "I built the LWC workspace, Apex-backed data loading, scoped filters, dashboard aggregation, chart components, custom expense list, modal workflows, recurring expense services, scheduled and batch processing, settings controls, export, print, and Salesforce metadata that power the Spendly app.",
-        "Privacy note: Because the app can contain personal financial records, portfolio screenshots use recreated sample data while preserving the interface structure and workflow.",
+        "In October 2026, I packaged the app as a second-generation Salesforce managed beta. Version 0.1.0.1 passed package validation with 97% Apex coverage and installed successfully in a clean scratch org.",
+        "The gallery shows an earlier version of the app, then called Spendly, with recreated sample records.",
       ],
     },
     galleryImages: [
       {
         title: "Expenses",
-        src: "/images/projects/salesforce-spendly/expenses-view.png",
+        src: "/images/projects/salesforce-budget-expense-manager/expenses-view.png",
         alt: "Spendly expenses view with filters, summaries, charts, and expense records",
       },
       {
         title: "Add Expense Modal",
-        src: "/images/projects/salesforce-spendly/add-expense-modal.png",
+        src: "/images/projects/salesforce-budget-expense-manager/add-expense-modal.png",
         alt: "Spendly add expense modal with expense details and categorized entry fields",
       },
       {
         title: "Recurring Expense",
-        src: "/images/projects/salesforce-spendly/recurring-view.png",
+        src: "/images/projects/salesforce-budget-expense-manager/recurring-view.png",
         alt: "Spendly recurring expenses view with template and automation controls",
       },
       {
         title: "Settings",
-        src: "/images/projects/salesforce-spendly/settings.png",
+        src: "/images/projects/salesforce-budget-expense-manager/settings.png",
         alt: "Spendly settings view for recurring automation and app configuration",
       },
       {
         title: "Print Report",
-        src: "/images/projects/salesforce-spendly/print-or-pdf.png",
+        src: "/images/projects/salesforce-budget-expense-manager/print-or-pdf.png",
         alt: "Spendly print-friendly expense report preview with filtered expense details",
       },
       {
         title: "CSV Export",
-        src: "/images/projects/salesforce-spendly/csv.png",
+        src: "/images/projects/salesforce-budget-expense-manager/csv.png",
         alt: "Spendly CSV export output for filtered expense records",
       },
     ],
-    status: "Completed",
-    timeline: "April 2, 2026 - June 15, 2026",
+    status: "Managed beta",
+    timeline: "April 2026 – October 2026 beta",
     tags: [
       "Salesforce",
       "Lightning Web Components",
       "Apex",
       "SOQL",
       "Personal Project",
-      "Expense Tracking",
-      "Automation",
-      "Data Visualization",
+      "Budgeting",
+      "Batch Apex",
+      "Managed 2GP",
     ],
     role: "Salesforce Developer",
     links: [],
     image: {
-      src: "/images/projects/salesforce-spendly/cover.png",
+      src: "/images/projects/salesforce-budget-expense-manager/cover.png",
       alt: "Salesforce Spendly expense management app cover",
     },
   },
@@ -506,7 +480,7 @@ const projectItems: Project[] = [
 const projectDisplayOrder = new Map([
   ["salesforce-email-composer", 0],
   ["salesforce-power-dialer-workspace", 1],
-  ["salesforce-spendly", 2],
+  ["salesforce-budget-expense-manager", 2],
   ["salesforce-portfolio-website", 3],
 ]);
 

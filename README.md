@@ -17,7 +17,7 @@ This portfolio presents John Carlo Red as a Salesforce Developer through a small
 - `Home`
   Highlights the hero section, current role, selected projects, and supporting portfolio sections.
 - `Projects`
-  Shows selected Salesforce project and client feature write-ups for `salesforce-email-composer`, `salesforce-power-dialer-workspace`, `salesforce-spendly`, and `salesforce-portfolio-website`.
+  Shows selected Salesforce project and client feature write-ups for `salesforce-email-composer`, `salesforce-power-dialer-workspace`, `salesforce-budget-expense-manager`, and `salesforce-portfolio-website`. Budget & Expense Manager for Salesforce covers monthly budgets, historical exchange rates, recurring expenses, and the managed-package beta.
 - `Experience`
   Renders a tabbed timeline for work history and education using shared structured data.
 - `Certifications`
